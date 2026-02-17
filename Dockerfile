@@ -7,7 +7,7 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 # Install NuGet
 RUN Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile C:\nuget.exe
 
-# Install MSBuild (comes with SDK base image, but ensure it's in PATH)
+# Install MSBuild
 RUN setx /M PATH $($Env:PATH + ';C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin')
 
 WORKDIR /app
@@ -15,11 +15,16 @@ WORKDIR /app
 # Copy project files
 COPY *.csproj ./
 COPY *.sln ./
+COPY packages.config
 
-# Restore NuGet packages
-RUN C:\nuget.exe restore
+RUN Invoke-WebRequest `
+        -Uri 'https://dist.nuget.org/win-x86-commandline/v6.8.0/nuget.exe' `
+        -OutFile 'C:\nuget.exe'
+ 
+RUN C:\nuget.exe restore packages.config `
+        -PackagesDirectory packages `
+        -Verbosity detailed
 
-# Copy everything else
 COPY . ./
 
 # Build and publish
