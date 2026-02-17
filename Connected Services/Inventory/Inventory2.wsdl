@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://services.liquidmotors.com" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://services.liquidmotors.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema targetNamespace="http://services.liquidmotors.com">
+      <s:import schemaLocation="http://wpsandservices.liquidmotors.com/api/Inventory.asmx?schema=schema1" namespace="http://liquidmotors.com/webservices/" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetInventoryOverridesSoapIn">
+    <wsdl:part xmlns:q1="http://liquidmotors.com/webservices/" name="parameters" element="q1:GetInventoryOverrides" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryOverridesSoapOut">
+    <wsdl:part xmlns:q2="http://liquidmotors.com/webservices/" name="parameters" element="q2:GetInventoryOverridesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetInventoryOverridesSoapIn">
+    <wsdl:part xmlns:q3="http://liquidmotors.com/webservices/" name="parameters" element="q3:SetInventoryOverrides" />
+  </wsdl:message>
+  <wsdl:message name="SetInventoryOverridesSoapOut">
+    <wsdl:part xmlns:q4="http://liquidmotors.com/webservices/" name="parameters" element="q4:SetInventoryOverridesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="InventorySoap">
+    <wsdl:operation name="GetInventoryOverrides">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Inventory Overrides</wsdl:documentation>
+      <wsdl:input message="tns:GetInventoryOverridesSoapIn" />
+      <wsdl:output message="tns:GetInventoryOverridesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetInventoryOverrides">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set Inventory Overrides</wsdl:documentation>
+      <wsdl:input message="tns:SetInventoryOverridesSoapIn" />
+      <wsdl:output message="tns:SetInventoryOverridesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InventorySoap" type="tns:InventorySoap">
+    <wsdl:documentation>
+      <wsi:Claim conformsTo="http://ws-i.org/profiles/basic/1.1" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" />
+    </wsdl:documentation>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetInventoryOverrides">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetInventoryOverrides" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetInventoryOverrides">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/SetInventoryOverrides" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InventorySoap12" type="tns:InventorySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetInventoryOverrides">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetInventoryOverrides" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetInventoryOverrides">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/SetInventoryOverrides" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

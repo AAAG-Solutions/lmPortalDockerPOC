@@ -1,0 +1,61 @@
+﻿.photoCard {
+    height: 100px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    border-style: solid;
+    margin: 0px 2px 2px 2px;
+}
+
+.photoArea {
+    height: calc(100vh - 220px);
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.arrow {
+    height: 30px;
+    pointer-events: auto;
+}
+
+.hideArrow {
+    filter: invert(100%);
+    pointer-events: none !important;
+}
+
+.photoActions {
+    width: 40%;
+    text-align: center;
+    padding: 3px;
+}
+
+.photoCardImg {
+    width: 60%;
+    margin-left: 3px;
+}
+
+.submitButton {
+    margin-top: 0px !important;
+    width: 150px !important;
+}
+
+.smallButton {
+    width: 70px !important;
+}
+
+.actionsArea {
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@media(max-width:768px) {
+    .submitButton {
+        width: 110px !important;
+    }
+    .smallButton {
+        width: 60px !important;
+    }
+}

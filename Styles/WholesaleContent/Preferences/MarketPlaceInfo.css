@@ -1,0 +1,98 @@
+﻿.sectionFieldset legend {
+    border: 0 !important;
+    background-color: transparent;
+}
+
+.marketInfoTbl {
+    display: table;
+    margin: 0.5rem auto;
+}
+
+input[type="checkbox"][readonly] {
+    pointer-events: none;
+}
+
+.jsgrid-grid-body {
+    height: 325px !important;
+}
+
+@media (max-width: 767px) {
+    .closeBtn {
+        bottom: 60px !important
+    }
+
+    .dealerPreferences {
+        overflow-y: scroll;
+        height: calc(100vh - 95px);
+        padding-right: 5px;
+    }
+
+    .smallTable {
+        display: table !important;
+    }
+
+    .headerButton {
+        width: 125px !important;
+        margin-right: 5px;
+        margin-top: 5px;
+    }
+
+    .credentialGrid {
+        max-width: 265px;
+        padding: 5px 0px !important;
+    }
+}
+
+.credentialGrid {
+    height: 400px;
+    padding: 5px;
+    overflow: auto;
+}
+
+.tableHeader {
+    background-color: hsl(202, 100%, 31%) !important;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(#0084d1, #00649e);
+    border-color: #00649e #00649e hsl(202, 100%, 28.5%);
+    color: #ffffff !important;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.16);
+    -webkit-font-smoothing: antialiased;
+    display: table-cell;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.table {
+    display: table;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.tableCell {
+    padding: 2px;
+    display: table-cell;
+    text-align: center;
+    font-weight: bold;
+    border-top-style: solid;
+}
+
+.tableCellSideBorder {
+    display: table-cell;
+    padding: 2px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+}
+
+.tableRow {
+    display: table-row;
+    padding: 2px;
+}
+
+.strike {
+    text-decoration: line-through;
+}

@@ -1,0 +1,48 @@
+﻿/* Grid jsGrid */
+.jsgrid {width: 100% !important;padding: 0px 10px 0px 10px;font-size: 12px;}
+.jsgrid-cell {border: 1px solid lightgray;font-size: 11px;}
+.jsgrid-grid-header {
+	background: linear-gradient( to top, #6E6F72 5%, #95979A 15%, #97999C 20%, #E0E1E2 75%, #EFF0F0 100% ) bottom #f2f2f2 no-repeat;
+}
+.jsgrid-header-row > .jsgrid-header-cell {
+	color: #00243A;
+	background: linear-gradient( to top, #6E6F72 5%, #95979A 15%, #97999C 20%, #E0E1E2 75%, #EFF0F0 100% ) bottom #f2f2f2 no-repeat;
+	font-size: 12px;
+	text-align: center;
+}
+.jsgrid-grid-body {overflow:overlay;}
+.jsgrid-row>.jsgrid-cell {background-color: #EFEFEF; height: 65px;}
+.jsgrid-alt-row>.jsgrid-cell {background-color: #ffffff; height: 65px;}/*D8EAF5*/
+.jsgrid-clicked-row>.jsgrid-cell {background-color: #758E9E;color:#ffffff;cursor:pointer;}
+
+/* custom styles per width */
+/* Responsive xs custom */
+@media(max-width:768px){
+	.jsgrid-grid-body {
+		height: calc(100vh - 235px);
+	}
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width:768px) {
+	.jsgrid-grid-body {
+		height: calc(100vh - 220px);
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width:992px) {
+	.jsgrid {
+		width: 100% !important;
+	}
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width:1200px) {
+
+}
+
+/* Only Medium devices */
+@media (min-width:768px) and (max-width:991px) {
+
+}

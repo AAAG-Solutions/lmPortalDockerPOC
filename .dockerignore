@@ -1,0 +1,43 @@
+# Minimal .dockerignore - Only exclude what's necessary
+
+# Build outputs (will be recreated)
+bin/
+obj/
+publish/
+published/
+
+# NuGet packages (will be restored)
+packages/
+*.nupkg
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+*.md
+README.txt
+
+# Docker files
+Dockerfile*
+.dockerignore
+docker-compose*.yml
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Backup files
+*.bak
+*.backup
+*.zip
+*.tar

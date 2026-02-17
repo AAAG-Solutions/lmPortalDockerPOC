@@ -1,0 +1,45 @@
+name: Build Windows Container 
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest 
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Build Docker image
+      run: |
+        docker build -t lmportal:latest .
+      
+    - name: Test container
+      run: |
+        docker run -d -p 8080:80 --name test-container lmportal:latest
+        Start-Sleep -Seconds 10
+        
+        # Basic health check
+        $response = Invoke-WebRequest -Uri http://localhost:8080 -UseBasicParsing
+        if ($response.StatusCode -eq 200) {
+            Write-Host "✅ Container is running successfully!"
+        } else {
+            Write-Host "❌ Container failed health check"
+            exit 1
+        }
+        
+        docker stop test-container
+      shell: pwsh
+      
+    - name: Save image
+      run: |
+        docker save lmportal:latest -o lmportal-image.tar
+        
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: docker-image
+        path: lmportal-image.tar

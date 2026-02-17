@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://services.liquidmotors.com" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://services.liquidmotors.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema targetNamespace="http://services.liquidmotors.com">
+      <s:import schemaLocation="http://testservices.liquidmotors.com/api/dealer.asmx?schema=schema1" namespace="http://liquidmotors.com/webservices/" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDealerInfoSoapIn">
+    <wsdl:part xmlns:q1="http://liquidmotors.com/webservices/" name="parameters" element="q1:GetDealerInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerInfoSoapOut">
+    <wsdl:part xmlns:q2="http://liquidmotors.com/webservices/" name="parameters" element="q2:GetDealerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="LotLocationListGetSoapIn">
+    <wsdl:part xmlns:q3="http://liquidmotors.com/webservices/" name="parameters" element="q3:LotLocationListGet" />
+  </wsdl:message>
+  <wsdl:message name="LotLocationListGetSoapOut">
+    <wsdl:part xmlns:q4="http://liquidmotors.com/webservices/" name="parameters" element="q4:LotLocationListGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportConfigGetSoapIn">
+    <wsdl:part xmlns:q5="http://liquidmotors.com/webservices/" name="parameters" element="q5:ImportConfigGet" />
+  </wsdl:message>
+  <wsdl:message name="ImportConfigGetSoapOut">
+    <wsdl:part xmlns:q6="http://liquidmotors.com/webservices/" name="parameters" element="q6:ImportConfigGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportSystemGetSoapIn">
+    <wsdl:part xmlns:q7="http://liquidmotors.com/webservices/" name="parameters" element="q7:ImportSystemGet" />
+  </wsdl:message>
+  <wsdl:message name="ImportSystemGetSoapOut">
+    <wsdl:part xmlns:q8="http://liquidmotors.com/webservices/" name="parameters" element="q8:ImportSystemGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="DealerBaseSetSoapIn">
+    <wsdl:part xmlns:q9="http://liquidmotors.com/webservices/" name="parameters" element="q9:DealerBaseSet" />
+  </wsdl:message>
+  <wsdl:message name="DealerBaseSetSoapOut">
+    <wsdl:part xmlns:q10="http://liquidmotors.com/webservices/" name="parameters" element="q10:DealerBaseSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerPathsSoapIn">
+    <wsdl:part xmlns:q11="http://liquidmotors.com/webservices/" name="parameters" element="q11:GetDealerPaths" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerPathsSoapOut">
+    <wsdl:part xmlns:q12="http://liquidmotors.com/webservices/" name="parameters" element="q12:GetDealerPathsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserWidgetPreferencesSoapIn">
+    <wsdl:part xmlns:q13="http://liquidmotors.com/webservices/" name="parameters" element="q13:GetUserWidgetPreferences" />
+  </wsdl:message>
+  <wsdl:message name="GetUserWidgetPreferencesSoapOut">
+    <wsdl:part xmlns:q14="http://liquidmotors.com/webservices/" name="parameters" element="q14:GetUserWidgetPreferencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDashInventoryHealthSoapIn">
+    <wsdl:part xmlns:q15="http://liquidmotors.com/webservices/" name="parameters" element="q15:GetDashInventoryHealth" />
+  </wsdl:message>
+  <wsdl:message name="GetDashInventoryHealthSoapOut">
+    <wsdl:part xmlns:q16="http://liquidmotors.com/webservices/" name="parameters" element="q16:GetDashInventoryHealthResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetImportHistoryDataSoapIn">
+    <wsdl:part xmlns:q17="http://liquidmotors.com/webservices/" name="parameters" element="q17:GetImportHistoryData" />
+  </wsdl:message>
+  <wsdl:message name="GetImportHistoryDataSoapOut">
+    <wsdl:part xmlns:q18="http://liquidmotors.com/webservices/" name="parameters" element="q18:GetImportHistoryDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSignupPendingSoapIn">
+    <wsdl:part xmlns:q19="http://liquidmotors.com/webservices/" name="parameters" element="q19:GetSignupPending" />
+  </wsdl:message>
+  <wsdl:message name="GetSignupPendingSoapOut">
+    <wsdl:part xmlns:q20="http://liquidmotors.com/webservices/" name="parameters" element="q20:GetSignupPendingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSignupAuctionsSoapIn">
+    <wsdl:part xmlns:q21="http://liquidmotors.com/webservices/" name="parameters" element="q21:GetSignupAuctions" />
+  </wsdl:message>
+  <wsdl:message name="GetSignupAuctionsSoapOut">
+    <wsdl:part xmlns:q22="http://liquidmotors.com/webservices/" name="parameters" element="q22:GetSignupAuctionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingSetupSoapIn">
+    <wsdl:part xmlns:q23="http://liquidmotors.com/webservices/" name="parameters" element="q23:GetPendingSetup" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingSetupSoapOut">
+    <wsdl:part xmlns:q24="http://liquidmotors.com/webservices/" name="parameters" element="q24:GetPendingSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetSignupSoapIn">
+    <wsdl:part xmlns:q25="http://liquidmotors.com/webservices/" name="parameters" element="q25:SetSignup" />
+  </wsdl:message>
+  <wsdl:message name="SetSignupSoapOut">
+    <wsdl:part xmlns:q26="http://liquidmotors.com/webservices/" name="parameters" element="q26:SetSignupResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DealerSoap">
+    <wsdl:operation name="GetDealerInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Dealer Information</wsdl:documentation>
+      <wsdl:input message="tns:GetDealerInfoSoapIn" />
+      <wsdl:output message="tns:GetDealerInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LotLocationListGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Lot Location List for Dealer</wsdl:documentation>
+      <wsdl:input message="tns:LotLocationListGetSoapIn" />
+      <wsdl:output message="tns:LotLocationListGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportConfigGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Import Configuration for Dealer</wsdl:documentation>
+      <wsdl:input message="tns:ImportConfigGetSoapIn" />
+      <wsdl:output message="tns:ImportConfigGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportSystemGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Available Import Systems</wsdl:documentation>
+      <wsdl:input message="tns:ImportSystemGetSoapIn" />
+      <wsdl:output message="tns:ImportSystemGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DealerBaseSet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set base information for dealer</wsdl:documentation>
+      <wsdl:input message="tns:DealerBaseSetSoapIn" />
+      <wsdl:output message="tns:DealerBaseSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerPaths">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Default Storage Paths for Dealer</wsdl:documentation>
+      <wsdl:input message="tns:GetDealerPathsSoapIn" />
+      <wsdl:output message="tns:GetDealerPathsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWidgetPreferences">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Widget Preferences for Dealer</wsdl:documentation>
+      <wsdl:input message="tns:GetUserWidgetPreferencesSoapIn" />
+      <wsdl:output message="tns:GetUserWidgetPreferencesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDashInventoryHealth">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Dashboard Inventory Health Data for Dealer</wsdl:documentation>
+      <wsdl:input message="tns:GetDashInventoryHealthSoapIn" />
+      <wsdl:output message="tns:GetDashInventoryHealthSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImportHistoryData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Dashboard Import History Data for Dealer</wsdl:documentation>
+      <wsdl:input message="tns:GetImportHistoryDataSoapIn" />
+      <wsdl:output message="tns:GetImportHistoryDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSignupPending">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get pending signup rows</wsdl:documentation>
+      <wsdl:input message="tns:GetSignupPendingSoapIn" />
+      <wsdl:output message="tns:GetSignupPendingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSignupAuctions">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get auctions for signup dropdown</wsdl:documentation>
+      <wsdl:input message="tns:GetSignupAuctionsSoapIn" />
+      <wsdl:output message="tns:GetSignupAuctionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingSetup">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get specified signup information</wsdl:documentation>
+      <wsdl:input message="tns:GetPendingSetupSoapIn" />
+      <wsdl:output message="tns:GetPendingSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSignup">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set Data for a dealer signup</wsdl:documentation>
+      <wsdl:input message="tns:SetSignupSoapIn" />
+      <wsdl:output message="tns:SetSignupSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DealerSoap" type="tns:DealerSoap">
+    <wsdl:documentation>
+      <wsi:Claim conformsTo="http://ws-i.org/profiles/basic/1.1" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" />
+    </wsdl:documentation>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDealerInfo">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetDealerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LotLocationListGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/LotLocationListGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportConfigGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ImportConfigGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportSystemGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ImportSystemGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DealerBaseSet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/DealerBaseSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerPaths">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetDealerPaths" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWidgetPreferences">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetUserWidgetPreferences" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDashInventoryHealth">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetDashInventoryHealth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImportHistoryData">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetImportHistoryData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSignupPending">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetSignupPending" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSignupAuctions">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetSignupAuctions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingSetup">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetPendingSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSignup">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/SetSignup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DealerSoap12" type="tns:DealerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDealerInfo">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetDealerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LotLocationListGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/LotLocationListGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportConfigGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ImportConfigGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportSystemGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ImportSystemGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DealerBaseSet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/DealerBaseSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerPaths">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetDealerPaths" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWidgetPreferences">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetUserWidgetPreferences" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDashInventoryHealth">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetDashInventoryHealth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImportHistoryData">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetImportHistoryData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSignupPending">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetSignupPending" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSignupAuctions">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetSignupAuctions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingSetup">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetPendingSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSignup">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/SetSignup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

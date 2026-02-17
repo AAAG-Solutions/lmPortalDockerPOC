@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://liquidmotors.com/webservices/" elementFormDefault="qualified" targetNamespace="http://liquidmotors.com/webservices/" id="schema1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="GetDealerInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" name="SingleTable" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="MultiTableName" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDealerInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetDealerInfoResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="lmReturnValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Values" type="tns:SerializableDictionary" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Result" type="tns:ReturnCode" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ResultString" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Data">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="xs:schema" />
+            <xs:any />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SerializableDictionary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfKeyValuePair" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfKeyValuePair">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValuePair" nillable="true" type="tns:KeyValuePair" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="KeyValuePair">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Key" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ReturnCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LM_SUCCESS" />
+      <xs:enumeration value="LM_INVALIDSESSION" />
+      <xs:enumeration value="LM_RELAYCOMMERROR" />
+      <xs:enumeration value="LM_DBERROR" />
+      <xs:enumeration value="LM_MISSINGASSOCIATIONS" />
+      <xs:enumeration value="LM_GENERICERROR" />
+      <xs:enumeration value="LM_SECURITYERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LotLocationListGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LotLocationListGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="LotLocationListGetResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportConfigGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportConfigGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ImportConfigGetResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportSystemGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="VehicleInvAcc" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportSystemGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ImportSystemGetResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DealerBaseSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="kDealer" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="jsonData" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DealerBaseSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="DealerBaseSetResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDealerPaths">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDealerPathsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetDealerPathsResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserWidgetPreferences">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kWidget" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserWidgetPreferencesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetUserWidgetPreferencesResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashInventoryHealth">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashInventoryHealthResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetDashInventoryHealthResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetImportHistoryData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="Days" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetImportHistoryDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetImportHistoryDataResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSignupPending">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSignupPendingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetSignupPendingResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSignupAuctions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSignupAuctionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetSignupAuctionsResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPendingSetup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kWholesaleSignup" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPendingSetupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetPendingSetupResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSignup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="jsonData" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSignupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SetSignupResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

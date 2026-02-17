@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://liquidmotors.com/webservices/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://liquidmotors.com/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://liquidmotors.com/webservices/">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="platform" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isFleet" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="lmReturnValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Values" type="tns:SerializableDictionary" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="tns:ReturnCode" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SerializableDictionary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfKeyValuePair" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfKeyValuePair">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="KeyValuePair" nillable="true" type="tns:KeyValuePair" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="KeyValuePair">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ReturnCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="LM_SUCCESS" />
+          <s:enumeration value="LM_INVALIDSESSION" />
+          <s:enumeration value="LM_RELAYCOMMERROR" />
+          <s:enumeration value="LM_DBERROR" />
+          <s:enumeration value="LM_MISSINGASSOCIATIONS" />
+          <s:enumeration value="LM_GENERICERROR" />
+          <s:enumeration value="LM_SECURITYERROR" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="Logout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogoutResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetPasswordRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="origin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetPasswordRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResetPasswordRequestResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetPasswordSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="newPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="valCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetPasswordSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResetPasswordSetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUserPasswordResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRelayCallCounts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authtoken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRelayCallCountsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRelayCallCountsResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PartnerLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dealerid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="partnerkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hostip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PartnerLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerLoginResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPermissions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kDealer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPermissionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPermissionsResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserSecuritySet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kSession" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="assignkPerson" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kSecurity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="op" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserSecuritySetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserSecuritySetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SessionCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kSession" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SessionCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionCheckResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapIn">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapOut">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResetPasswordRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:ResetPasswordRequest" />
+  </wsdl:message>
+  <wsdl:message name="ResetPasswordRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:ResetPasswordRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResetPasswordSetSoapIn">
+    <wsdl:part name="parameters" element="tns:ResetPasswordSet" />
+  </wsdl:message>
+  <wsdl:message name="ResetPasswordSetSoapOut">
+    <wsdl:part name="parameters" element="tns:ResetPasswordSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRelayCallCountsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRelayCallCounts" />
+  </wsdl:message>
+  <wsdl:message name="GetRelayCallCountsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRelayCallCountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PartnerLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:PartnerLogin" />
+  </wsdl:message>
+  <wsdl:message name="PartnerLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:PartnerLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPermissionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPermissions" />
+  </wsdl:message>
+  <wsdl:message name="GetPermissionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPermissionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserSecuritySetSoapIn">
+    <wsdl:part name="parameters" element="tns:UserSecuritySet" />
+  </wsdl:message>
+  <wsdl:message name="UserSecuritySetSoapOut">
+    <wsdl:part name="parameters" element="tns:UserSecuritySetResponse" />
+  </wsdl:message>
+  <wsdl:message name="SessionCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:SessionCheck" />
+  </wsdl:message>
+  <wsdl:message name="SessionCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:SessionCheckResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AuthenticateSoap">
+    <wsdl:operation name="Login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempt User Login</wsdl:documentation>
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Log User out</wsdl:documentation>
+      <wsdl:input message="tns:LogoutSoapIn" />
+      <wsdl:output message="tns:LogoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasswordRequest">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Request password reset for account</wsdl:documentation>
+      <wsdl:input message="tns:ResetPasswordRequestSoapIn" />
+      <wsdl:output message="tns:ResetPasswordRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasswordSet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set New Password for account</wsdl:documentation>
+      <wsdl:input message="tns:ResetPasswordSetSoapIn" />
+      <wsdl:output message="tns:ResetPasswordSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserPassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check if user password is expired</wsdl:documentation>
+      <wsdl:input message="tns:CheckUserPasswordSoapIn" />
+      <wsdl:output message="tns:CheckUserPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRelayCallCounts">
+      <wsdl:input message="tns:GetRelayCallCountsSoapIn" />
+      <wsdl:output message="tns:GetRelayCallCountsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PartnerLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Log Partner User in to single sign-on</wsdl:documentation>
+      <wsdl:input message="tns:PartnerLoginSoapIn" />
+      <wsdl:output message="tns:PartnerLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissions">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get User Permissions for this dealer</wsdl:documentation>
+      <wsdl:input message="tns:GetPermissionsSoapIn" />
+      <wsdl:output message="tns:GetPermissionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserSecuritySet">
+      <wsdl:input message="tns:UserSecuritySetSoapIn" />
+      <wsdl:output message="tns:UserSecuritySetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SessionCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check to make sure Session is valid</wsdl:documentation>
+      <wsdl:input message="tns:SessionCheckSoapIn" />
+      <wsdl:output message="tns:SessionCheckSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AuthenticateSoap" type="tns:AuthenticateSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasswordRequest">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ResetPasswordRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasswordSet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ResetPasswordSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserPassword">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/CheckUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelayCallCounts">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetRelayCallCounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PartnerLogin">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/PartnerLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissions">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetPermissions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserSecuritySet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/UserSecuritySet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SessionCheck">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/SessionCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuthenticateSoap12" type="tns:AuthenticateSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasswordRequest">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ResetPasswordRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasswordSet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ResetPasswordSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserPassword">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/CheckUserPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelayCallCounts">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetRelayCallCounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PartnerLogin">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/PartnerLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissions">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetPermissions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserSecuritySet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/UserSecuritySet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SessionCheck">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/SessionCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Authenticate">
+    <wsdl:port name="AuthenticateSoap" binding="tns:AuthenticateSoap">
+      <soap:address location="http://wpsandservices.liquidmotors.com/api/authenticate.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuthenticateSoap12" binding="tns:AuthenticateSoap12">
+      <soap12:address location="http://wpsandservices.liquidmotors.com/api/authenticate.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

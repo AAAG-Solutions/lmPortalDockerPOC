@@ -1,0 +1,1374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CD69BBC1-2406-4380-933B-412B1122EC03}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LMWholesale</RootNamespace>
+    <AssemblyName>LiquidMotorsWholesale</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aurigma.ImageUploader, Version=8.0.54.22574, Culture=neutral, PublicKeyToken=f4bbbf243f314012, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Aurigma.ImageUploader.dll</HintPath>
+    </Reference>
+    <Reference Include="Aurigma.ImageUploaderFlash, Version=8.5.81.24892, Culture=neutral, PublicKeyToken=f4bbbf243f314012, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Aurigma.ImageUploaderFlash.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>packages\Castle.Core.5.1.0\lib\netstandard2.0\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.Base, Version=21.1.11.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <HintPath>packages\EO.WebBrowser.21.1.11\lib\EO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.WebBrowser, Version=21.1.11.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <HintPath>packages\EO.WebBrowser.21.1.11\lib\EO.WebBrowser.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.WebEngine, Version=21.1.11.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <HintPath>packages\EO.WebBrowser.21.1.11\lib\EO.WebEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="soss_namedcache, Version=5.0.0.0, Culture=neutral, PublicKeyToken=a1ec0b86f746a476, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\soss_namedcache.dll</HintPath>
+    </Reference>
+    <Reference Include="soss_svcdotnet, Version=5.0.0.0, Culture=neutral, PublicKeyToken=a1ec0b86f746a476, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\soss_svcdotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.EventLog, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.EventLog.4.7.0\lib\net461\System.Diagnostics.EventLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.6.0.4\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>packages\AspNet.ScriptManager.bootstrap.3.3.7\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>packages\AspNet.ScriptManager.jQuery.3.3.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>packages\Microsoft.ApplicationInsights.2.5.1\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>packages\Microsoft.ApplicationInsights.DependencyCollector.2.5.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.5.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.5.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>packages\Microsoft.ApplicationInsights.WindowsServer.2.5.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>packages\Microsoft.ApplicationInsights.Web.2.5.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Common\LightGallery\lg.eot" />
+    <Content Include="Common\LightGallery\lg.ttf" />
+    <Content Include="Common\LightGallery\lg.woff" />
+    <Content Include="Common\Aurigma\aurigma.htmluploader.control.css" />
+    <Content Include="Common\Aurigma\aurigma.htmluploader.control.js" />
+    <Content Include="Common\Aurigma\aurigma.imageuploaderflash.min.js" />
+    <Content Include="Common\Aurigma\aurigma.imageuploaderflash.swf" />
+    <Content Include="Common\Aurigma\ImageUploader5.cab" />
+    <Content Include="Common\Aurigma\ImageUploader5.jar" />
+    <Content Include="Common\Aurigma\iuembed.js" />
+    <Content Include="Common\LightGallery\flexslider-icon.eot" />
+    <Content Include="Common\LightGallery\flexslider-icon.svg" />
+    <Content Include="Common\LightGallery\flexslider-icon.ttf" />
+    <Content Include="Common\LightGallery\flexslider-icon.woff" />
+    <Content Include="Common\LightGallery\jquery-1.10.2.js" />
+    <Content Include="Common\LightGallery\jquery.flexslider-min.js" />
+    <Content Include="Common\LightGallery\lg-fullscreen.js" />
+    <Content Include="Common\LightGallery\lg-fullscreen.min.js" />
+    <Content Include="Common\LightGallery\lg-thumbnail.js" />
+    <Content Include="Common\LightGallery\lg-thumbnail.min.js" />
+    <Content Include="Common\LightGallery\lg-video.js" />
+    <Content Include="Common\LightGallery\lg-video.min.js" />
+    <Content Include="Common\LightGallery\lg-zoom.js" />
+    <Content Include="Common\LightGallery\lg-zoom.min.js" />
+    <Content Include="Common\LightGallery\lg.svg" />
+    <Content Include="Common\LightGallery\lightgallery.css" />
+    <Content Include="Common\LightGallery\lightgallery.js" />
+    <Content Include="Common\LightGallery\lightgallery.min.js" />
+    <Content Include="Common\LightGallery\loading.gif" />
+    <None Include="Connected Services\Authenticate\authenticate.disco" />
+    <None Include="Connected Services\DAS\das1.disco" />
+    <None Include="Connected Services\Dealer\dealer.disco" />
+    <Content Include="Connected Services\Dealer\LMWholesale.Dealer.DealerBaseSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Dealer\LMWholesale.Dealer.GetDealerPathsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.GetHealthReportDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.GetHealthReportMinResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.GetHealthReportSummaryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.GetOfferReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.CurrentResultsWidgetGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.GetAACurrentlyPostedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.GetDealerActiveWholesaleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Dealer\LMWholesale.Dealer.GetDashInventoryHealthResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Dealer\LMWholesale.Dealer.GetImportHistoryDataResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Dealer\LMWholesale.Dealer.GetUserWidgetPreferencesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Authenticate\LMWholesale.Authenticate.CheckUserPasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Authenticate\LMWholesale.Authenticate.GetPermissionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Authenticate\LMWholesale.Authenticate.GetRelayCallCountsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Authenticate\LMWholesale.Authenticate.LoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Authenticate\LMWholesale.Authenticate.LogoutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Authenticate\LMWholesale.Authenticate.PartnerLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Authenticate\LMWholesale.Authenticate.ResetPasswordRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Authenticate\LMWholesale.Authenticate.ResetPasswordSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\Authenticate\authenticate.wsdl" />
+    <None Include="Connected Services\DAS\das.wsdl" />
+    <None Include="Connected Services\DAS\das1.wsdl" />
+    <None Include="Connected Services\DAS\schema1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Dealer\dealer.wsdl" />
+    <None Include="Connected Services\Dealer\dealer1.wsdl" />
+    <None Include="Connected Services\Dealer\schema1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Inventory\configuration91.svcinfo" />
+    <None Include="Connected Services\Inventory\configuration.svcinfo" />
+    <None Include="Connected Services\Inventory\Inventory1.disco" />
+    <Content Include="Connected Services\Inventory\LMWholesale.Inventory.GetInventoryOverridesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Inventory\LMWholesale.Inventory.lmReturnValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Inventory\LMWholesale.Inventory.SetInventoryOverridesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\Inventory\Inventory2.wsdl" />
+    <None Include="Connected Services\Inventory\Inventory21.wsdl" />
+    <None Include="Connected Services\Inventory\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\Listing\listing.disco" />
+    <Content Include="Connected Services\Lookup\LMWholesale.Lookup.GetMakeListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\Inventory\schema11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Listing\listing.wsdl" />
+    <None Include="Connected Services\Lookup\lookup.wsdl" />
+    <None Include="Connected Services\Lookup\lookup1.wsdl" />
+    <None Include="Connected Services\Lookup\schema1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OldDAS\DAS.disco" />
+    <None Include="Connected Services\OldDAS\configuration91.svcinfo" />
+    <None Include="Connected Services\OldDAS\configuration.svcinfo" />
+    <None Include="Connected Services\Lookup\lookup.disco" />
+    <Content Include="Connected Services\OldDAS\LMWholesale.OldDAS.lmReturnValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\OldDAS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.SubmitToMultipleAuctionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\Wholesale\Wholesale.disco" />
+    <Content Include="Images\baseline_visibility_black_24dp.png" />
+    <Content Include="Images\baseline_visibility_off_black_24dp.png" />
+    <Content Include="Images\bg_direction_nav.png" />
+    <Content Include="Images\chevron-down.svg" />
+    <Content Include="Images\chevron-up.svg" />
+    <Content Include="Images\DamagePicker\convertible.png" />
+    <Content Include="Images\DamagePicker\convertible_mask.png" />
+    <Content Include="Images\DamagePicker\coupe.png" />
+    <Content Include="Images\DamagePicker\coupe_mask.png" />
+    <Content Include="Images\DamagePicker\crew_truck.png" />
+    <Content Include="Images\DamagePicker\crew_truck_mask.png" />
+    <Content Include="Images\DamagePicker\sedan.png" />
+    <Content Include="Images\DamagePicker\sedan_mask.png" />
+    <Content Include="Images\DamagePicker\suv.png" />
+    <Content Include="Images\DamagePicker\suv_mask.png" />
+    <Content Include="Images\DamagePicker\truck.png" />
+    <Content Include="Images\DamagePicker\truck_mask.png" />
+    <Content Include="Images\DamagePicker\van.png" />
+    <Content Include="Images\DamagePicker\van_mask.png" />
+    <Content Include="Images\LM_color_tag_72.jpg" />
+    <Content Include="Images\loading_icon.gif" />
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.GetDropdownValuesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.GetInspectionMappingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Images\not_available.gif" />
+    <Content Include="Images\overlayBKG.png" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\Sortable.min.js" />
+    <Content Include="Scripts\WholesaleContent\AccountSetup.js" />
+    <Content Include="Maintenance.html" />
+    <Content Include="Scripts\WholesaleContent\Preferences\AlternateCredentials.js" />
+    <Content Include="Scripts\WholesaleContent\Preferences\BlackoutWindowRules.js" />
+    <Content Include="Scripts\WholesaleContent\Preferences\General.js" />
+    <Content Include="Scripts\WholesaleContent\Preferences\MarketPlaceInfo.js" />
+    <Content Include="Scripts\WholesaleContent\Preferences\UserManagement.js" />
+    <Content Include="Scripts\WholesaleContent\Reporting\CreditRequest.js" />
+    <Content Include="Scripts\WholesaleContent\Reporting\SalesDataApproval.js" />
+    <Content Include="Scripts\WholesaleContent\Reporting\Status.js" />
+    <Content Include="Scripts\WholesaleContent\Search.js" />
+    <Content Include="Scripts\WholesaleContent\Vehicle\ChangeVin.js" />
+    <Content Include="Scripts\WholesaleContent\Vehicle\InspectVehicle.js" />
+    <Content Include="Scripts\WholesaleContent\Vehicle\ManagePhotos.js" />
+    <Content Include="Styles\WholesaleContent\Preferences\AutoLaunchRules.css" />
+    <Content Include="Styles\WholesaleContent\Preferences\BlackoutWindowRules.css" />
+    <Content Include="Styles\WholesaleContent\Preferences\MarketPlaceInfo.css" />
+    <Content Include="Styles\WholesaleContent\Reporting\Status.css" />
+    <Content Include="Styles\WholesaleContent\Vehicle\Add.css" />
+    <Content Include="Styles\WholesaleContent\Vehicle\ChangeVin.css" />
+    <Content Include="Styles\WholesaleContent\Vehicle\InspectVehicle.css" />
+    <Content Include="Styles\WholesaleContent\Vehicle\ManageOverrides.css" />
+    <Content Include="Styles\WholesaleContent\Vehicle\ManagePhotos.css" />
+    <Content Include="Styles\WholesaleContent\Vehicle\PhotoGallery.css" />
+    <Content Include="WholesaleContent\AccountSetup.aspx" />
+    <Content Include="Styles\WholesaleContent\Vehicle\Search.css" />
+    <Content Include="Styles\WholesaleContent\Vehicle\StartWholesale.css" />
+    <Content Include="Styles\WholesaleContent\WholesaleDefault.css" />
+    <Content Include="Styles\WholesaleSystem\PasswordReset.css" />
+    <Content Include="WholesaleContent\AccountPreferences.aspx" />
+    <Content Include="WholesaleContent\Preferences\AlternateCredentials.aspx" />
+    <Content Include="WholesaleContent\Preferences\UserManagement.aspx" />
+    <Content Include="WholesaleContent\Reporting\SalesDataApproval.aspx" />
+    <Content Include="WholesaleContent\Reporting\ReportViewer.aspx" />
+    <Content Include="WholesaleContent\Reporting\Status.aspx" />
+    <Content Include="WholesaleContent\TrainingVideos.aspx" />
+    <Content Include="WholesaleContent\Vehicle\ChangeVin.aspx" />
+    <Content Include="WholesaleContent\Vehicle\InspectVehicle.aspx" />
+    <Content Include="WholesaleContent\Vehicle\ManageOverrides.aspx" />
+    <Content Include="WholesaleContent\Vehicle\ManagePhotos.aspx" />
+    <Content Include="WholesaleContent\Vehicle\ModifyPhotos.aspx" />
+    <Content Include="WholesaleContent\Vehicle\PhotoGallery.aspx" />
+    <Content Include="WholesaleData\TrainingVideo.aspx" />
+    <Content Include="WholesaleData\UploadPhotos.aspx" />
+    <Content Include="WholesaleSystem\CachePop.aspx" />
+    <Content Include="WholesaleSystem\ErrorPage.aspx" />
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.ImportStatusSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.DASUpdateInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.GetAnalyticsReRunResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Authenticate\LMWholesale.Authenticate.lmReturnValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Dealer\LMWholesale.Dealer.LotLocationListGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Dealer\LMWholesale.Dealer.GetDealerInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Dealer\LMWholesale.Dealer.lmReturnValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Lookup\LMWholesale.Lookup.InspectionCompanyListGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Lookup\LMWholesale.Lookup.GetListingsByVINResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Lookup\LMWholesale.Lookup.GetAuctionCredentialsByDealerByAuctionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Lookup\LMWholesale.Lookup.GetMultiAuctionCredentialsByDealerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Lookup\LMWholesale.Lookup.GetWholesaleAuctionFuelTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Lookup\LMWholesale.Lookup.WholesaleUserDefaultUserGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Lookup\LMWholesale.Lookup.GetMakeListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.AddPhotographsExplicitResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.AddPhotographsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.DeleteVehicleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.EbayCategoryGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.GenerateTemplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.GetListingPathsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.ListingAuctionDataGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.ListingDetailGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.ListingDetailSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.ListingLotLocationListGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.ListingSingleAuctionDataGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.ListingVehicleGetPhotosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.ListingVehicleNotesGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.ListingVehicleNotesSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.PhotoImportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.PhotosToProcessResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.RandomTitleGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.SellUnsellVehicleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.UpdateGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.UpdateSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.WPUpdateSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Scripts\WholesaleContent\Preferences\AutoLaunchRules.js" />
+    <Content Include="Scripts\WholesaleContent\Vehicle\Modify.js" />
+    <Content Include="Scripts\WholesaleContent\Auction\MultiEnd.js" />
+    <Content Include="Scripts\WholesaleContent\Auction\MultiStart.js" />
+    <Content Include="Scripts\WholesaleContent\Vehicle\StartWholesale.js" />
+    <Content Include="Scripts\WholesaleContent\Vehicle\Update.js" />
+    <Content Include="Scripts\WholesaleContent\VehicleManagement.js" />
+    <Content Include="Scripts\WholesaleContent\WholesaleDefault.js" />
+    <Content Include="Scripts\WholesaleSystem\PasswordReset.js" />
+    <Content Include="Styles\WholesaleContent\Vehicle\Update.css" />
+    <Content Include="Styles\WholesaleContent\VehicleManagement.css" />
+    <Content Include="WholesaleContent\Vehicle\EndWholesale.aspx" />
+    <Content Include="WholesaleContent\Auction\MultiEnd.aspx" />
+    <Content Include="WholesaleContent\Preferences\General.aspx" />
+    <Content Include="WholesaleContent\Reporting\CreditRequest.aspx" />
+    <Content Include="WholesaleContent\Auction\MultiStart.aspx" />
+    <Content Include="WholesaleContent\Vehicle\Search.aspx" />
+    <Content Include="WholesaleContent\Vehicle\StartWholesale.aspx" />
+    <Content Include="WholesaleContent\Vehicle\ViewNotes.aspx" />
+    <Content Include="WholesaleSystem\PasswordReset.aspx" />
+    <None Include="Connected Services\DAS\configuration91.svcinfo" />
+    <None Include="Connected Services\DAS\configuration.svcinfo" />
+    <Content Include="Common\MarketingInfo.html" />
+    <Content Include="Common\Sidebar.html" />
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.ImportStatusGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.lmReturnValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.DASDeleteInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.DASCreateInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.DASGetMotorMakesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.DASGetMotorModelsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.DASGetMotorStylesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.DASGetMotorYearsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.DASGetVinExplosionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.DASResolveBlackbookResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.DASResolveChromeYMMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\DAS\LMWholesale.DAS.DASResolveBluebookResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\DAS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\Dealer\LMWholesale.Dealer.ImportConfigGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Dealer\LMWholesale.Dealer.ImportSystemGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\Listing\configuration91.svcinfo" />
+    <None Include="Connected Services\Listing\configuration.svcinfo" />
+    <Content Include="Connected Services\Listing\LMWholesale.Listing.lmReturnValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\Listing\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.InspectionCompanyGetResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.InspectionCompanySetResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleAutoLaunchSetDataResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleBlackoutSetDataResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleBlackoutTextGetResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleInspectionRequestResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleAuctionListDealerGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleAuctionByDealerGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleMultiListingsGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleMultiListingsSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleUserFilterGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleUserFilterSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleAutoLaunchGetDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleBlackoutGetDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleAutoLaunchGetSingleDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.InspectionDataGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.InspectionDataSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleAuctionDamageSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleAuctionPaintSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WPWholesaleAuctionDamageSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WPWholesaleAuctionPaintSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleAuctionByDealerSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\OldDAS\DAS.wsdl" />
+    <Content Include="Images\lmi.png" />
+    <Content Include="Images\LMI_logo.png" />
+    <Content Include="Images\login.png" />
+    <Content Include="Scripts\jsGrid.js" />
+    <Content Include="Scripts\jsgrid.min.js" />
+    <Content Include="Scripts\Util.js" />
+    <Content Include="Scripts\WholesaleContent\Vehicle\Add.js" />
+    <Content Include="Styles\LMGrid.css" />
+    <Content Include="WholesaleContent\Vehicle\Add.aspx" />
+    <Content Include="WholesaleContent\ImportInventory.aspx" />
+    <Content Include="WholesaleContent\Preferences\AutoLaunchRules.aspx" />
+    <Content Include="WholesaleContent\Preferences\BlackoutWindowRules.aspx" />
+    <Content Include="WholesaleContent\Preferences\MarketPlaceInfo.aspx" />
+    <Content Include="WholesaleContent\Vehicle\Update.aspx" />
+    <Content Include="WholesaleContent\VehicleManagement.aspx" />
+    <None Include="Connected Services\Authenticate\configuration91.svcinfo" />
+    <None Include="Connected Services\Authenticate\configuration.svcinfo" />
+    <Content Include="Connected Services\Authenticate\LiquidMotorsWholesale.Authenticate.lmReturnValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\Authenticate\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\Dealer\configuration91.svcinfo" />
+    <None Include="Connected Services\Dealer\configuration.svcinfo" />
+    <Content Include="Connected Services\Dealer\LiquidMotorsWholesale.Dealer.lmReturnValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Dealer\LiquidMotorsWholesale.Dealer.GetDealerInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\Dealer\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\Lookup\LiquidMotorsWholesale.Lookup.GetDealerListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Lookup\LiquidMotorsWholesale.Lookup.lmReturnValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Lookup\LMWholesale.Lookup.GetListingOptionListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Lookup\LMWholesale.Lookup.GetModelListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\Lookup\configuration91.svcinfo" />
+    <None Include="Connected Services\Lookup\configuration.svcinfo" />
+    <None Include="Connected Services\Lookup\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\Wholesale\LiquidMotorsWholesale.Wholesale.lmReturnValue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.GetWholesaleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.GetWholesaleWPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.SubmitMultiListingToAuctionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Wholesale\LMWholesale.Wholesale.WholesaleAutoLaunchTextGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\Wholesale\configuration91.svcinfo" />
+    <None Include="Connected Services\Wholesale\configuration.svcinfo" />
+    <None Include="Connected Services\Wholesale\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Styles\bootstrap-theme.css" />
+    <Content Include="Styles\bootstrap-theme.min.css" />
+    <Content Include="Styles\bootstrap.css" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\favicon.ico" />
+    <Content Include="Styles\jsgrid-theme.min.css" />
+    <Content Include="Styles\jsgrid.min.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="WholesaleContent\Vehicle\Delete.aspx" />
+    <Content Include="WholesaleContent\WholesaleDefault.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WholesaleData\WholesaleSecurity.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WholesaleSystem\Login.aspx" />
+    <Content Include="libman.json" />
+    <None Include="Connected Services\Wholesale\schema1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Wholesale\Wholesale.wsdl" />
+    <None Include="Connected Services\Wholesale\Wholesale1.wsdl" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Site.Master" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Bundle.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="WholesalePortal.ini" />
+    <Content Include="WholesaleData\UploadPhotosHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BLL\WholesaleContent\AccountSetup.cs" />
+    <Compile Include="BLL\WholesaleContent\Auction\MultiEnd.cs" />
+    <Compile Include="BLL\WholesaleContent\Auction\MultiStart.cs" />
+    <Compile Include="BLL\WholesaleContent\ImportInventory.cs" />
+    <Compile Include="BLL\WholesaleContent\Preferences\AlternateCredentials.cs" />
+    <Compile Include="BLL\WholesaleContent\Preferences\AutoLaunchRules.cs" />
+    <Compile Include="BLL\WholesaleContent\Preferences\BlackoutWindowRules.cs" />
+    <Compile Include="BLL\WholesaleContent\Preferences\General.cs" />
+    <Compile Include="BLL\WholesaleContent\Preferences\MarketPlaceInfo.cs" />
+    <Compile Include="BLL\WholesaleContent\Preferences\UserManagement.cs" />
+    <Compile Include="BLL\WholesaleContent\Reporting\CreditRequest.cs" />
+    <Compile Include="BLL\WholesaleContent\Reporting\SalesDataApproval.cs" />
+    <Compile Include="BLL\WholesaleContent\Reporting\ReportViewer.cs" />
+    <Compile Include="BLL\WholesaleContent\Reporting\Status.cs" />
+    <Compile Include="BLL\WholesaleContent\Vehicle\Add.cs" />
+    <Compile Include="BLL\WholesaleContent\Vehicle\ChangeVin.cs" />
+    <Compile Include="BLL\WholesaleContent\Vehicle\Delete.cs" />
+    <Compile Include="BLL\WholesaleContent\Vehicle\EndWholesale.cs" />
+    <Compile Include="BLL\WholesaleContent\Vehicle\InspectVehicle.cs" />
+    <Compile Include="BLL\WholesaleContent\Vehicle\ManageOverrides.cs" />
+    <Compile Include="BLL\WholesaleContent\Vehicle\ManagePhotos.cs" />
+    <Compile Include="BLL\WholesaleContent\Vehicle\ModifyPhotos.cs" />
+    <Compile Include="BLL\WholesaleContent\Vehicle\PhotoGallery.cs" />
+    <Compile Include="BLL\WholesaleContent\Vehicle\Search.cs" />
+    <Compile Include="BLL\WholesaleContent\Vehicle\StartWholesale.cs" />
+    <Compile Include="BLL\WholesaleContent\Vehicle\Update.cs" />
+    <Compile Include="BLL\WholesaleContent\Vehicle\ViewNotes.cs" />
+    <Compile Include="BLL\WholesaleData\UploadPhotos.cs" />
+    <Compile Include="Connected Services\Inventory\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\OldDAS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="resource\clients\AuthenticationClient.cs" />
+    <Compile Include="resource\clients\DASClient.cs" />
+    <Compile Include="resource\clients\DealerClient.cs" />
+    <Compile Include="resource\clients\interfaces\IAuthenticateClient.cs" />
+    <Compile Include="resource\clients\interfaces\IDASClient.cs" />
+    <Compile Include="resource\clients\interfaces\IDealerClient.cs" />
+    <Compile Include="resource\clients\interfaces\IInventory.cs" />
+    <Compile Include="resource\clients\interfaces\IListingClient.cs" />
+    <Compile Include="resource\clients\interfaces\ILookupClient.cs" />
+    <Compile Include="resource\clients\interfaces\IOldDASClient.cs" />
+    <Compile Include="resource\clients\interfaces\IWholesaleClient.cs" />
+    <Compile Include="resource\clients\InventoryClient.cs" />
+    <Compile Include="resource\clients\ListingClient.cs" />
+    <Compile Include="resource\clients\LookupClient.cs" />
+    <Compile Include="resource\clients\OldDASClient.cs" />
+    <Compile Include="resource\clients\WholesaleClient.cs" />
+    <Compile Include="resource\factory\AuctionFactory.cs" />
+    <Compile Include="resource\factory\IAuctionService.cs" />
+    <Compile Include="resource\factory\services\ACVAuctionService.cs" />
+    <Compile Include="resource\factory\services\AdesaService.cs" />
+    <Compile Include="resource\factory\services\RemarketingPlusService.cs" />
+    <Compile Include="resource\factory\services\AuctionEdgeService.cs" />
+    <Compile Include="resource\factory\services\AuctionOSService.cs" />
+    <Compile Include="resource\factory\services\AuctionSimplifiedService.cs" />
+    <Compile Include="resource\factory\services\CarOfferService.cs" />
+    <Compile Include="resource\factory\services\CarmigoService.cs" />
+    <Compile Include="resource\factory\services\CopartService.cs" />
+    <Compile Include="resource\factory\services\DefaultClass.cs" />
+    <Compile Include="resource\factory\services\eDealerService.cs" />
+    <Compile Include="resource\factory\services\IaaService.cs" />
+    <Compile Include="resource\factory\services\IasService.cs" />
+    <Compile Include="resource\factory\services\OVEService.cs" />
+    <Compile Include="resource\factory\services\SmartAuctionService.cs" />
+    <Compile Include="resource\IniFile.cs" />
+    <Compile Include="resource\model\Wholesale\AdvancedFilter.cs" />
+    <Compile Include="resource\model\Wholesale\InventoryFilter.cs" />
+    <Compile Include="WholesaleContent\AccountSetup.aspx.cs">
+      <DependentUpon>AccountSetup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\AccountSetup.aspx.designer.cs">
+      <DependentUpon>AccountSetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\AccountPreferences.aspx.cs">
+      <DependentUpon>AccountPreferences.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\AccountPreferences.aspx.designer.cs">
+      <DependentUpon>AccountPreferences.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Preferences\AlternateCredentials.aspx.cs">
+      <DependentUpon>AlternateCredentials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Preferences\AlternateCredentials.aspx.designer.cs">
+      <DependentUpon>AlternateCredentials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Preferences\UserManagement.aspx.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Preferences\UserManagement.aspx.designer.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Reporting\SalesDataApproval.aspx.cs">
+      <DependentUpon>SalesDataApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Reporting\SalesDataApproval.aspx.designer.cs">
+      <DependentUpon>SalesDataApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Reporting\ReportViewer.aspx.cs">
+      <DependentUpon>ReportViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Reporting\ReportViewer.aspx.designer.cs">
+      <DependentUpon>ReportViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Reporting\Status.aspx.cs">
+      <DependentUpon>Status.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Reporting\Status.aspx.designer.cs">
+      <DependentUpon>Status.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\TrainingVideos.aspx.cs">
+      <DependentUpon>TrainingVideos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\TrainingVideos.aspx.designer.cs">
+      <DependentUpon>TrainingVideos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\ChangeVin.aspx.cs">
+      <DependentUpon>ChangeVin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\ChangeVin.aspx.designer.cs">
+      <DependentUpon>ChangeVin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\InspectVehicle.aspx.cs">
+      <DependentUpon>InspectVehicle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\InspectVehicle.aspx.designer.cs">
+      <DependentUpon>InspectVehicle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BLL\WholesaleContent\VehicleManagement.cs" />
+    <Compile Include="BLL\WholesaleContent\WholesaleDefault.cs" />
+    <Compile Include="BLL\WholesaleSystem\PasswordReset.cs" />
+    <Compile Include="BLL\WholesaleUser\WholesaleUser.cs" />
+    <Compile Include="WholesaleContent\Vehicle\ManageOverrides.aspx.cs">
+      <DependentUpon>ManageOverrides.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\ManageOverrides.aspx.designer.cs">
+      <DependentUpon>ManageOverrides.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\ManagePhotos.aspx.cs">
+      <DependentUpon>ManagePhotos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\ManagePhotos.aspx.designer.cs">
+      <DependentUpon>ManagePhotos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\ModifyPhotos.aspx.cs">
+      <DependentUpon>ModifyPhotos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\ModifyPhotos.aspx.designer.cs">
+      <DependentUpon>ModifyPhotos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\PhotoGallery.aspx.cs">
+      <DependentUpon>PhotoGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\PhotoGallery.aspx.designer.cs">
+      <DependentUpon>PhotoGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleData\TrainingVideo.aspx.cs">
+      <DependentUpon>TrainingVideo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleData\TrainingVideo.aspx.designer.cs">
+      <DependentUpon>TrainingVideo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleData\UploadPhotos.aspx.cs">
+      <DependentUpon>UploadPhotos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleData\UploadPhotos.aspx.designer.cs">
+      <DependentUpon>UploadPhotos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleData\UploadPhotosHandler.ashx.cs">
+      <DependentUpon>UploadPhotosHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleSystem\CachePop.aspx.cs">
+      <DependentUpon>CachePop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleSystem\CachePop.aspx.designer.cs">
+      <DependentUpon>CachePop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleSystem\Util.cs" />
+    <Compile Include="WholesaleSystem\ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleSystem\ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\lmPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\ScreenStack.cs" />
+    <Compile Include="Connected Services\DAS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\Listing\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\ImportInventory.aspx.cs">
+      <DependentUpon>ImportInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\ImportInventory.aspx.designer.cs">
+      <DependentUpon>ImportInventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\EndWholesale.aspx.cs">
+      <DependentUpon>EndWholesale.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\EndWholesale.aspx.designer.cs">
+      <DependentUpon>EndWholesale.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Auction\MultiEnd.aspx.cs">
+      <DependentUpon>MultiEnd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Auction\MultiEnd.aspx.designer.cs">
+      <DependentUpon>MultiEnd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Preferences\AutoLaunchRules.aspx.cs">
+      <DependentUpon>AutoLaunchRules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Preferences\AutoLaunchRules.aspx.designer.cs">
+      <DependentUpon>AutoLaunchRules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Preferences\BlackoutWindowRules.aspx.cs">
+      <DependentUpon>BlackoutWindowRules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Preferences\BlackoutWindowRules.aspx.designer.cs">
+      <DependentUpon>BlackoutWindowRules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Preferences\General.aspx.cs">
+      <DependentUpon>General.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Preferences\General.aspx.designer.cs">
+      <DependentUpon>General.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Preferences\MarketPlaceInfo.aspx.cs">
+      <DependentUpon>MarketPlaceInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Preferences\MarketPlaceInfo.aspx.designer.cs">
+      <DependentUpon>MarketPlaceInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Reporting\CreditRequest.aspx.cs">
+      <DependentUpon>CreditRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Reporting\CreditRequest.aspx.designer.cs">
+      <DependentUpon>CreditRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Auction\MultiStart.aspx.cs">
+      <DependentUpon>MultiStart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Auction\MultiStart.aspx.designer.cs">
+      <DependentUpon>MultiStart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\StartWholesale.aspx.cs">
+      <DependentUpon>StartWholesale.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\StartWholesale.aspx.designer.cs">
+      <DependentUpon>StartWholesale.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\Update.aspx.cs">
+      <DependentUpon>Update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\Update.aspx.designer.cs">
+      <DependentUpon>Update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\ViewNotes.aspx.cs">
+      <DependentUpon>ViewNotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\Vehicle\ViewNotes.aspx.designer.cs">
+      <DependentUpon>ViewNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleSystem\jsGridBuilder.cs" />
+    <Compile Include="WholesaleContent\VehicleManagement.aspx.cs">
+      <DependentUpon>VehicleManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\VehicleManagement.aspx.designer.cs">
+      <DependentUpon>VehicleManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleSystem\PageSecurityManager.cs" />
+    <Compile Include="WholesaleSystem\PasswordReset.aspx.cs">
+      <DependentUpon>PasswordReset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleSystem\PasswordReset.aspx.designer.cs">
+      <DependentUpon>PasswordReset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleSystem\TemplateGenerator.cs" />
+    <Compile Include="WholesaleData\Logger.cs" />
+    <Compile Include="WholesaleSystem\WholesaleSystem.cs" />
+    <Compile Include="Common\Extensions.cs" />
+    <Compile Include="Connected Services\Authenticate\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\Dealer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\Lookup\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\Wholesale\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleContent\WholesaleDefault.aspx.cs">
+      <DependentUpon>WholesaleDefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleContent\WholesaleDefault.aspx.designer.cs">
+      <DependentUpon>WholesaleDefault.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WholesaleSystem\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WholesaleSystem\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="bin\" />
+    <Folder Include="lib\" />
+    <Folder Include="resource\model\Analytics\" />
+    <Folder Include="resource\model\Authenticate\" />
+    <Folder Include="resource\model\DAS\" />
+    <Folder Include="resource\model\Dealer\" />
+    <Folder Include="resource\model\Listing\" />
+    <Folder Include="resource\model\Lookup\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\Authenticate\" />
+    <WCFMetadataStorage Include="Connected Services\DAS\" />
+    <WCFMetadataStorage Include="Connected Services\Dealer\" />
+    <WCFMetadataStorage Include="Connected Services\Inventory\" />
+    <WCFMetadataStorage Include="Connected Services\Listing\" />
+    <WCFMetadataStorage Include="Connected Services\Lookup\" />
+    <WCFMetadataStorage Include="Connected Services\OldDAS\" />
+    <WCFMetadataStorage Include="Connected Services\Wholesale\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1867</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\System.Text.Json.6.0.4\build\System.Text.Json.targets'))" />
+  </Target>
+  <Import Project="packages\System.Text.Json.6.0.4\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

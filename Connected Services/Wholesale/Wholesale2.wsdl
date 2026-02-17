@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://services.liquidmotors.com" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://services.liquidmotors.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema targetNamespace="http://services.liquidmotors.com">
+      <s:import schemaLocation="http://testservices.liquidmotors.com/api/Wholesale.asmx?schema=schema1" namespace="http://liquidmotors.com/webservices/" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetWholesaleSoapIn">
+    <wsdl:part xmlns:q1="http://liquidmotors.com/webservices/" name="parameters" element="q1:GetWholesale" />
+  </wsdl:message>
+  <wsdl:message name="GetWholesaleSoapOut">
+    <wsdl:part xmlns:q2="http://liquidmotors.com/webservices/" name="parameters" element="q2:GetWholesaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWholesaleWPSoapIn">
+    <wsdl:part xmlns:q3="http://liquidmotors.com/webservices/" name="parameters" element="q3:GetWholesaleWP" />
+  </wsdl:message>
+  <wsdl:message name="GetWholesaleWPSoapOut">
+    <wsdl:part xmlns:q4="http://liquidmotors.com/webservices/" name="parameters" element="q4:GetWholesaleWPResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitToAllAuctionSoapIn">
+    <wsdl:part xmlns:q5="http://liquidmotors.com/webservices/" name="parameters" element="q5:SubmitToAllAuction" />
+  </wsdl:message>
+  <wsdl:message name="SubmitToAllAuctionSoapOut">
+    <wsdl:part xmlns:q6="http://liquidmotors.com/webservices/" name="parameters" element="q6:SubmitToAllAuctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitMultiListingToAuctionSoapIn">
+    <wsdl:part xmlns:q7="http://liquidmotors.com/webservices/" name="parameters" element="q7:SubmitMultiListingToAuction" />
+  </wsdl:message>
+  <wsdl:message name="SubmitMultiListingToAuctionSoapOut">
+    <wsdl:part xmlns:q8="http://liquidmotors.com/webservices/" name="parameters" element="q8:SubmitMultiListingToAuctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="WholesaleAutoLaunchTextGetSoapIn">
+    <wsdl:part xmlns:q9="http://liquidmotors.com/webservices/" name="parameters" element="q9:WholesaleAutoLaunchTextGet" />
+  </wsdl:message>
+  <wsdl:message name="WholesaleAutoLaunchTextGetSoapOut">
+    <wsdl:part xmlns:q10="http://liquidmotors.com/webservices/" name="parameters" element="q10:WholesaleAutoLaunchTextGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="WholesaleAutoLaunchSetDataSoapIn">
+    <wsdl:part xmlns:q11="http://liquidmotors.com/webservices/" name="parameters" element="q11:WholesaleAutoLaunchSetData" />
+  </wsdl:message>
+  <wsdl:message name="WholesaleAutoLaunchSetDataSoapOut">
+    <wsdl:part xmlns:q12="http://liquidmotors.com/webservices/" name="parameters" element="q12:WholesaleAutoLaunchSetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="WholesaleBlackoutTextGetSoapIn">
+    <wsdl:part xmlns:q13="http://liquidmotors.com/webservices/" name="parameters" element="q13:WholesaleBlackoutTextGet" />
+  </wsdl:message>
+  <wsdl:message name="WholesaleBlackoutTextGetSoapOut">
+    <wsdl:part xmlns:q14="http://liquidmotors.com/webservices/" name="parameters" element="q14:WholesaleBlackoutTextGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="WholesaleBlackoutSetDataSoapIn">
+    <wsdl:part xmlns:q15="http://liquidmotors.com/webservices/" name="parameters" element="q15:WholesaleBlackoutSetData" />
+  </wsdl:message>
+  <wsdl:message name="WholesaleBlackoutSetDataSoapOut">
+    <wsdl:part xmlns:q16="http://liquidmotors.com/webservices/" name="parameters" element="q16:WholesaleBlackoutSetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="InspectionCompanyGetSoapIn">
+    <wsdl:part xmlns:q17="http://liquidmotors.com/webservices/" name="parameters" element="q17:InspectionCompanyGet" />
+  </wsdl:message>
+  <wsdl:message name="InspectionCompanyGetSoapOut">
+    <wsdl:part xmlns:q18="http://liquidmotors.com/webservices/" name="parameters" element="q18:InspectionCompanyGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="InspectionCompanySetSoapIn">
+    <wsdl:part xmlns:q19="http://liquidmotors.com/webservices/" name="parameters" element="q19:InspectionCompanySet" />
+  </wsdl:message>
+  <wsdl:message name="InspectionCompanySetSoapOut">
+    <wsdl:part xmlns:q20="http://liquidmotors.com/webservices/" name="parameters" element="q20:InspectionCompanySetResponse" />
+  </wsdl:message>
+  <wsdl:message name="WholesaleInspectionRequestSoapIn">
+    <wsdl:part xmlns:q21="http://liquidmotors.com/webservices/" name="parameters" element="q21:WholesaleInspectionRequest" />
+  </wsdl:message>
+  <wsdl:message name="WholesaleInspectionRequestSoapOut">
+    <wsdl:part xmlns:q22="http://liquidmotors.com/webservices/" name="parameters" element="q22:WholesaleInspectionRequestResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WholesaleSoap">
+    <wsdl:operation name="GetWholesale">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Wholesale Inventory for this Dealer</wsdl:documentation>
+      <wsdl:input message="tns:GetWholesaleSoapIn" />
+      <wsdl:output message="tns:GetWholesaleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWholesaleWP">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Wholesale Inventory for this Dealer with Paging</wsdl:documentation>
+      <wsdl:input message="tns:GetWholesaleWPSoapIn" />
+      <wsdl:output message="tns:GetWholesaleWPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitToAllAuction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submit vehicle to multiple auctions</wsdl:documentation>
+      <wsdl:input message="tns:SubmitToAllAuctionSoapIn" />
+      <wsdl:output message="tns:SubmitToAllAuctionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitMultiListingToAuction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submit multiple vehicles to multiple auctions</wsdl:documentation>
+      <wsdl:input message="tns:SubmitMultiListingToAuctionSoapIn" />
+      <wsdl:output message="tns:SubmitMultiListingToAuctionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleAutoLaunchTextGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Wholesale AutoLaunch rules as text</wsdl:documentation>
+      <wsdl:input message="tns:WholesaleAutoLaunchTextGetSoapIn" />
+      <wsdl:output message="tns:WholesaleAutoLaunchTextGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleAutoLaunchSetData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set Wholesale AutoLaunch data for a given account/dealer</wsdl:documentation>
+      <wsdl:input message="tns:WholesaleAutoLaunchSetDataSoapIn" />
+      <wsdl:output message="tns:WholesaleAutoLaunchSetDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleBlackoutTextGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Wholesale Blackout Window rules as text</wsdl:documentation>
+      <wsdl:input message="tns:WholesaleBlackoutTextGetSoapIn" />
+      <wsdl:output message="tns:WholesaleBlackoutTextGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleBlackoutSetData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set Blackout Window Data for a given account/dealer</wsdl:documentation>
+      <wsdl:input message="tns:WholesaleBlackoutSetDataSoapIn" />
+      <wsdl:output message="tns:WholesaleBlackoutSetDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InspectionCompanyGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Inspection companies for a dealer</wsdl:documentation>
+      <wsdl:input message="tns:InspectionCompanyGetSoapIn" />
+      <wsdl:output message="tns:InspectionCompanyGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InspectionCompanySet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set details for an inspection company</wsdl:documentation>
+      <wsdl:input message="tns:InspectionCompanySetSoapIn" />
+      <wsdl:output message="tns:InspectionCompanySetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleInspectionRequest">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Request a vehicle inspection from the dealers inspection company</wsdl:documentation>
+      <wsdl:input message="tns:WholesaleInspectionRequestSoapIn" />
+      <wsdl:output message="tns:WholesaleInspectionRequestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WholesaleSoap" type="tns:WholesaleSoap">
+    <wsdl:documentation>
+      <wsi:Claim conformsTo="http://ws-i.org/profiles/basic/1.1" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" />
+    </wsdl:documentation>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetWholesale">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetWholesale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWholesaleWP">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetWholesaleWP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitToAllAuction">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/SubmitToAllAuction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitMultiListingToAuction">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/SubmitMultiListingToAuction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleAutoLaunchTextGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/WholesaleAutoLaunchTextGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleAutoLaunchSetData">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/WholesaleAutoLaunchSetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleBlackoutTextGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/WholesaleBlackoutTextGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleBlackoutSetData">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/WholesaleBlackoutSetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InspectionCompanyGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/InspectionCompanyGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InspectionCompanySet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/InspectionCompanySet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleInspectionRequest">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/WholesaleInspectionRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WholesaleSoap12" type="tns:WholesaleSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetWholesale">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetWholesale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWholesaleWP">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetWholesaleWP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitToAllAuction">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/SubmitToAllAuction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitMultiListingToAuction">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/SubmitMultiListingToAuction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleAutoLaunchTextGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/WholesaleAutoLaunchTextGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleAutoLaunchSetData">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/WholesaleAutoLaunchSetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleBlackoutTextGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/WholesaleBlackoutTextGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleBlackoutSetData">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/WholesaleBlackoutSetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InspectionCompanyGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/InspectionCompanyGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InspectionCompanySet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/InspectionCompanySet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleInspectionRequest">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/WholesaleInspectionRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

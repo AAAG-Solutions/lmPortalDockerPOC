@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://services.liquidmotors.com" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://services.liquidmotors.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema targetNamespace="http://services.liquidmotors.com">
+      <s:import schemaLocation="http://testservices.liquidmotors.com/api/das.asmx?schema=schema1" namespace="http://liquidmotors.com/webservices/" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ImportStatusGetSoapIn">
+    <wsdl:part xmlns:q1="http://liquidmotors.com/webservices/" name="parameters" element="q1:ImportStatusGet" />
+  </wsdl:message>
+  <wsdl:message name="ImportStatusGetSoapOut">
+    <wsdl:part xmlns:q2="http://liquidmotors.com/webservices/" name="parameters" element="q2:ImportStatusGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportStatusSetSoapIn">
+    <wsdl:part xmlns:q3="http://liquidmotors.com/webservices/" name="parameters" element="q3:ImportStatusSet" />
+  </wsdl:message>
+  <wsdl:message name="ImportStatusSetSoapOut">
+    <wsdl:part xmlns:q4="http://liquidmotors.com/webservices/" name="parameters" element="q4:ImportStatusSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="DASCreateInventorySoapIn">
+    <wsdl:part xmlns:q5="http://liquidmotors.com/webservices/" name="parameters" element="q5:DASCreateInventory" />
+  </wsdl:message>
+  <wsdl:message name="DASCreateInventorySoapOut">
+    <wsdl:part xmlns:q6="http://liquidmotors.com/webservices/" name="parameters" element="q6:DASCreateInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="DASDeleteInventorySoapIn">
+    <wsdl:part xmlns:q7="http://liquidmotors.com/webservices/" name="parameters" element="q7:DASDeleteInventory" />
+  </wsdl:message>
+  <wsdl:message name="DASDeleteInventorySoapOut">
+    <wsdl:part xmlns:q8="http://liquidmotors.com/webservices/" name="parameters" element="q8:DASDeleteInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="DASGetVinExplosionSoapIn">
+    <wsdl:part xmlns:q9="http://liquidmotors.com/webservices/" name="parameters" element="q9:DASGetVinExplosion" />
+  </wsdl:message>
+  <wsdl:message name="DASGetVinExplosionSoapOut">
+    <wsdl:part xmlns:q10="http://liquidmotors.com/webservices/" name="parameters" element="q10:DASGetVinExplosionResponse" />
+  </wsdl:message>
+  <wsdl:message name="DASGetMotorYearsSoapIn">
+    <wsdl:part xmlns:q11="http://liquidmotors.com/webservices/" name="parameters" element="q11:DASGetMotorYears" />
+  </wsdl:message>
+  <wsdl:message name="DASGetMotorYearsSoapOut">
+    <wsdl:part xmlns:q12="http://liquidmotors.com/webservices/" name="parameters" element="q12:DASGetMotorYearsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DASGetMotorMakesSoapIn">
+    <wsdl:part xmlns:q13="http://liquidmotors.com/webservices/" name="parameters" element="q13:DASGetMotorMakes" />
+  </wsdl:message>
+  <wsdl:message name="DASGetMotorMakesSoapOut">
+    <wsdl:part xmlns:q14="http://liquidmotors.com/webservices/" name="parameters" element="q14:DASGetMotorMakesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DASGetMotorModelsSoapIn">
+    <wsdl:part xmlns:q15="http://liquidmotors.com/webservices/" name="parameters" element="q15:DASGetMotorModels" />
+  </wsdl:message>
+  <wsdl:message name="DASGetMotorModelsSoapOut">
+    <wsdl:part xmlns:q16="http://liquidmotors.com/webservices/" name="parameters" element="q16:DASGetMotorModelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DASGetMotorStylesSoapIn">
+    <wsdl:part xmlns:q17="http://liquidmotors.com/webservices/" name="parameters" element="q17:DASGetMotorStyles" />
+  </wsdl:message>
+  <wsdl:message name="DASGetMotorStylesSoapOut">
+    <wsdl:part xmlns:q18="http://liquidmotors.com/webservices/" name="parameters" element="q18:DASGetMotorStylesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DASResolveBlackbookSoapIn">
+    <wsdl:part xmlns:q19="http://liquidmotors.com/webservices/" name="parameters" element="q19:DASResolveBlackbook" />
+  </wsdl:message>
+  <wsdl:message name="DASResolveBlackbookSoapOut">
+    <wsdl:part xmlns:q20="http://liquidmotors.com/webservices/" name="parameters" element="q20:DASResolveBlackbookResponse" />
+  </wsdl:message>
+  <wsdl:message name="DASResolveBluebookSoapIn">
+    <wsdl:part xmlns:q21="http://liquidmotors.com/webservices/" name="parameters" element="q21:DASResolveBluebook" />
+  </wsdl:message>
+  <wsdl:message name="DASResolveBluebookSoapOut">
+    <wsdl:part xmlns:q22="http://liquidmotors.com/webservices/" name="parameters" element="q22:DASResolveBluebookResponse" />
+  </wsdl:message>
+  <wsdl:message name="DASResolveChromeYMMSSoapIn">
+    <wsdl:part xmlns:q23="http://liquidmotors.com/webservices/" name="parameters" element="q23:DASResolveChromeYMMS" />
+  </wsdl:message>
+  <wsdl:message name="DASResolveChromeYMMSSoapOut">
+    <wsdl:part xmlns:q24="http://liquidmotors.com/webservices/" name="parameters" element="q24:DASResolveChromeYMMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DASUpdateInventorySoapIn">
+    <wsdl:part xmlns:q25="http://liquidmotors.com/webservices/" name="parameters" element="q25:DASUpdateInventory" />
+  </wsdl:message>
+  <wsdl:message name="DASUpdateInventorySoapOut">
+    <wsdl:part xmlns:q26="http://liquidmotors.com/webservices/" name="parameters" element="q26:DASUpdateInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalyticsReRunSoapIn">
+    <wsdl:part xmlns:q27="http://liquidmotors.com/webservices/" name="parameters" element="q27:GetAnalyticsReRun" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalyticsReRunSoapOut">
+    <wsdl:part xmlns:q28="http://liquidmotors.com/webservices/" name="parameters" element="q28:GetAnalyticsReRunResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHealthReportMinSoapIn">
+    <wsdl:part xmlns:q29="http://liquidmotors.com/webservices/" name="parameters" element="q29:GetHealthReportMin" />
+  </wsdl:message>
+  <wsdl:message name="GetHealthReportMinSoapOut">
+    <wsdl:part xmlns:q30="http://liquidmotors.com/webservices/" name="parameters" element="q30:GetHealthReportMinResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOfferReportSoapIn">
+    <wsdl:part xmlns:q31="http://liquidmotors.com/webservices/" name="parameters" element="q31:GetOfferReport" />
+  </wsdl:message>
+  <wsdl:message name="GetOfferReportSoapOut">
+    <wsdl:part xmlns:q32="http://liquidmotors.com/webservices/" name="parameters" element="q32:GetOfferReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHealthReportSummarySoapIn">
+    <wsdl:part xmlns:q33="http://liquidmotors.com/webservices/" name="parameters" element="q33:GetHealthReportSummary" />
+  </wsdl:message>
+  <wsdl:message name="GetHealthReportSummarySoapOut">
+    <wsdl:part xmlns:q34="http://liquidmotors.com/webservices/" name="parameters" element="q34:GetHealthReportSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHealthReportDetailSoapIn">
+    <wsdl:part xmlns:q35="http://liquidmotors.com/webservices/" name="parameters" element="q35:GetHealthReportDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetHealthReportDetailSoapOut">
+    <wsdl:part xmlns:q36="http://liquidmotors.com/webservices/" name="parameters" element="q36:GetHealthReportDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAACurrentlyPostedSoapIn">
+    <wsdl:part xmlns:q37="http://liquidmotors.com/webservices/" name="parameters" element="q37:GetAACurrentlyPosted" />
+  </wsdl:message>
+  <wsdl:message name="GetAACurrentlyPostedSoapOut">
+    <wsdl:part xmlns:q38="http://liquidmotors.com/webservices/" name="parameters" element="q38:GetAACurrentlyPostedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerActiveWholesaleSoapIn">
+    <wsdl:part xmlns:q39="http://liquidmotors.com/webservices/" name="parameters" element="q39:GetDealerActiveWholesale" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerActiveWholesaleSoapOut">
+    <wsdl:part xmlns:q40="http://liquidmotors.com/webservices/" name="parameters" element="q40:GetDealerActiveWholesaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="CurrentResultsWidgetGetSoapIn">
+    <wsdl:part xmlns:q41="http://liquidmotors.com/webservices/" name="parameters" element="q41:CurrentResultsWidgetGet" />
+  </wsdl:message>
+  <wsdl:message name="CurrentResultsWidgetGetSoapOut">
+    <wsdl:part xmlns:q42="http://liquidmotors.com/webservices/" name="parameters" element="q42:CurrentResultsWidgetGetResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DASSoap">
+    <wsdl:operation name="ImportStatusGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Dealer Import Status</wsdl:documentation>
+      <wsdl:input message="tns:ImportStatusGetSoapIn" />
+      <wsdl:output message="tns:ImportStatusGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportStatusSet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set Dealer Import Status</wsdl:documentation>
+      <wsdl:input message="tns:ImportStatusSetSoapIn" />
+      <wsdl:output message="tns:ImportStatusSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DASCreateInventory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create Dealer Vehicle</wsdl:documentation>
+      <wsdl:input message="tns:DASCreateInventorySoapIn" />
+      <wsdl:output message="tns:DASCreateInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DASDeleteInventory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Dealer Vehicle</wsdl:documentation>
+      <wsdl:input message="tns:DASDeleteInventorySoapIn" />
+      <wsdl:output message="tns:DASDeleteInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DASGetVinExplosion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get VIN Explosion Information</wsdl:documentation>
+      <wsdl:input message="tns:DASGetVinExplosionSoapIn" />
+      <wsdl:output message="tns:DASGetVinExplosionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DASGetMotorYears">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Current List of Vehicle Years</wsdl:documentation>
+      <wsdl:input message="tns:DASGetMotorYearsSoapIn" />
+      <wsdl:output message="tns:DASGetMotorYearsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DASGetMotorMakes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Make for a given Y</wsdl:documentation>
+      <wsdl:input message="tns:DASGetMotorMakesSoapIn" />
+      <wsdl:output message="tns:DASGetMotorMakesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DASGetMotorModels">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Models for given YM</wsdl:documentation>
+      <wsdl:input message="tns:DASGetMotorModelsSoapIn" />
+      <wsdl:output message="tns:DASGetMotorModelsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DASGetMotorStyles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Styles for given YMM</wsdl:documentation>
+      <wsdl:input message="tns:DASGetMotorStylesSoapIn" />
+      <wsdl:output message="tns:DASGetMotorStylesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DASResolveBlackbook">
+      <wsdl:input message="tns:DASResolveBlackbookSoapIn" />
+      <wsdl:output message="tns:DASResolveBlackbookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DASResolveBluebook">
+      <wsdl:input message="tns:DASResolveBluebookSoapIn" />
+      <wsdl:output message="tns:DASResolveBluebookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DASResolveChromeYMMS">
+      <wsdl:input message="tns:DASResolveChromeYMMSSoapIn" />
+      <wsdl:output message="tns:DASResolveChromeYMMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DASUpdateInventory">
+      <wsdl:input message="tns:DASUpdateInventorySoapIn" />
+      <wsdl:output message="tns:DASUpdateInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsReRun">
+      <wsdl:input message="tns:GetAnalyticsReRunSoapIn" />
+      <wsdl:output message="tns:GetAnalyticsReRunSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHealthReportMin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Health Report Minimum Data</wsdl:documentation>
+      <wsdl:input message="tns:GetHealthReportMinSoapIn" />
+      <wsdl:output message="tns:GetHealthReportMinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOfferReport">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Offer Report Data</wsdl:documentation>
+      <wsdl:input message="tns:GetOfferReportSoapIn" />
+      <wsdl:output message="tns:GetOfferReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHealthReportSummary">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Health Report Summary Data</wsdl:documentation>
+      <wsdl:input message="tns:GetHealthReportSummarySoapIn" />
+      <wsdl:output message="tns:GetHealthReportSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHealthReportDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Health Report Detail Data</wsdl:documentation>
+      <wsdl:input message="tns:GetHealthReportDetailSoapIn" />
+      <wsdl:output message="tns:GetHealthReportDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAACurrentlyPosted">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Health Report Summary Data</wsdl:documentation>
+      <wsdl:input message="tns:GetAACurrentlyPostedSoapIn" />
+      <wsdl:output message="tns:GetAACurrentlyPostedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerActiveWholesale">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Health Report Detail Data</wsdl:documentation>
+      <wsdl:input message="tns:GetDealerActiveWholesaleSoapIn" />
+      <wsdl:output message="tns:GetDealerActiveWholesaleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CurrentResultsWidgetGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Current Results Widget Data</wsdl:documentation>
+      <wsdl:input message="tns:CurrentResultsWidgetGetSoapIn" />
+      <wsdl:output message="tns:CurrentResultsWidgetGetSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DASSoap" type="tns:DASSoap">
+    <wsdl:documentation>
+      <wsi:Claim conformsTo="http://ws-i.org/profiles/basic/1.1" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" />
+    </wsdl:documentation>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImportStatusGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ImportStatusGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportStatusSet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ImportStatusSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASCreateInventory">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/DASCreateInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASDeleteInventory">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/DASDeleteInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASGetVinExplosion">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/DASGetVinExplosion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASGetMotorYears">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/DASGetMotorYears" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASGetMotorMakes">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/DASGetMotorMakes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASGetMotorModels">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/DASGetMotorModels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASGetMotorStyles">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/DASGetMotorStyles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASResolveBlackbook">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/DASResolveBlackbook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASResolveBluebook">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/DASResolveBluebook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASResolveChromeYMMS">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/DASResolveChromeYMMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASUpdateInventory">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/DASUpdateInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsReRun">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetAnalyticsReRun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHealthReportMin">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetHealthReportMin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOfferReport">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetOfferReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHealthReportSummary">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetHealthReportSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHealthReportDetail">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetHealthReportDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAACurrentlyPosted">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetAACurrentlyPosted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerActiveWholesale">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetDealerActiveWholesale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentResultsWidgetGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/CurrentResultsWidgetGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DASSoap12" type="tns:DASSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImportStatusGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ImportStatusGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportStatusSet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ImportStatusSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASCreateInventory">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/DASCreateInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASDeleteInventory">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/DASDeleteInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASGetVinExplosion">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/DASGetVinExplosion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASGetMotorYears">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/DASGetMotorYears" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASGetMotorMakes">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/DASGetMotorMakes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASGetMotorModels">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/DASGetMotorModels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASGetMotorStyles">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/DASGetMotorStyles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASResolveBlackbook">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/DASResolveBlackbook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASResolveBluebook">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/DASResolveBluebook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASResolveChromeYMMS">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/DASResolveChromeYMMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DASUpdateInventory">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/DASUpdateInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsReRun">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetAnalyticsReRun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHealthReportMin">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetHealthReportMin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOfferReport">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetOfferReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHealthReportSummary">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetHealthReportSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHealthReportDetail">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetHealthReportDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAACurrentlyPosted">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetAACurrentlyPosted" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerActiveWholesale">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetDealerActiveWholesale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentResultsWidgetGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/CurrentResultsWidgetGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

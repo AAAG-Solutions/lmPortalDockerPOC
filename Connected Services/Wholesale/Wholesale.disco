@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://wpsandservices.liquidmotors.com/api/Wholesale.asmx?wsdl" docRef="http://wpsandservices.liquidmotors.com/api/Wholesale.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://wpsandservices.liquidmotors.com/api/Wholesale.asmx" xmlns:q1="http://services.liquidmotors.com" binding="q1:WholesaleSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://wpsandservices.liquidmotors.com/api/Wholesale.asmx" xmlns:q2="http://services.liquidmotors.com" binding="q2:WholesaleSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

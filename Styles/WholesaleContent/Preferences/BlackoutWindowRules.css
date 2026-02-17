@@ -1,0 +1,107 @@
+﻿@media (max-width: 767px) {
+    .closeBtn {
+        bottom: 60px !important
+    }
+}
+
+.jsgrid-grid-body {
+    height: calc(100vh - 230px) !important;
+}
+
+.ruleText {
+    transition: all 0.5s ease-in-out;
+    max-height: 0px;
+    overflow: hidden;
+}
+
+.openRuleText {
+    transition: all 0.5s ease-in-out;
+    max-height: initial;
+}
+
+@media screen and (orientation: landscape) and (max-height: 450px) {
+    .smallHide {
+        display: none;
+    }
+}
+
+.table {
+    display: table;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.tableRow {
+    display: table-row;
+    padding: 2px;
+}
+
+.tableCell {
+    display: table-cell;
+    padding: 2px;
+    font-weight: bold;
+    text-align: right;
+    text-decoration: underline;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+.Hide {
+    display: none;
+}
+
+.strike {
+    color: red;
+}
+
+.ModalCheckbox {
+    margin-right: 50px;
+}
+
+@media(max-width:768px) {
+    .submitButton {
+        width: 80px !important;
+        margin-top: 2px !important;
+    }
+
+    .preferencesContainer {
+        height: calc(100vh - 180px) !important;
+    }
+
+    .modalContent {
+        position: static !important;
+        height: calc(100vh - 75px) !important;
+        padding-bottom: 20px !important;
+    }
+
+    .modalPopup {
+        padding-top: 52px !important;
+    }
+
+    .PricingBox {
+        max-width: 175px !important;
+    }
+
+    .inputStyle {
+        max-width: 185px;
+    }
+
+    .closeModalButton {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+        margin-bottom: 0px;
+    }
+
+    .jsgrid-grid-body {
+        height: calc(100vh - 260px) !important;
+    }
+}

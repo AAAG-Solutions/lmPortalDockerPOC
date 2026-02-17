@@ -1,0 +1,22 @@
+.jsgrid-pager {
+    display: flex;
+    flex-direction: row;
+}
+
+.body-content {
+    padding: 15px 15px 0 15px !important;
+}
+
+.jsgrid {
+    padding: 10px 0px 0px 0px;
+}
+
+.jsgrid-grid-body {
+    height: calc(100vh - 220px);
+}
+
+@media (max-width: 767px) {
+    .jsgrid-grid-body {
+        height: calc(100vh - 400px);
+    }
+}

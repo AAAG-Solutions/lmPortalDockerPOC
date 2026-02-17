@@ -1,0 +1,79 @@
+﻿.jsgrid {
+    height: calc(100vh - 40%) !important;
+}
+
+.vehicleLocationInfo {
+    transition: all 0.5s ease-in-out;
+    max-height: 0px;
+    overflow: hidden;
+}
+
+.openVehicleLocationInfo {
+    transition: all 0.5s ease-in-out;
+    max-height: 310px;
+}
+
+.selectableLegend {
+    cursor: pointer;
+}
+
+.downArrow {
+    background-image: url(../../Images/fa-icons/arrow-down.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    height: 25px;
+    width: 30px;
+    border: none;
+    outline: none;
+}
+
+.upArrow:focus, .downArrow:focus {
+    outline: none;
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.GLITable {
+    display: table;
+    margin: 0 auto;
+}
+
+.MMRButtonSection {
+    width: 100%;
+    padding: 5px;
+    text-align: -webkit-center;
+}
+
+.mmrButtonCell {
+    display: table-cell;
+    text-align: right;
+    padding: 2px;
+}
+
+@media(max-width:768px) {
+    .GLITable {
+        margin: 0px !important;
+    }
+
+    .SmallLeftAlign {
+        text-align-last: left !important;
+    }
+
+    .MMRButton {
+        width: 100px;
+        margin-right: 5px;
+        margin-top: 5px;
+    }
+
+    .mmrButtonCell {
+        padding: 0;
+    }
+
+    .openVehicleLocationInfo {
+        max-height: 450px;
+    }
+}

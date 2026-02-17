@@ -1,0 +1,640 @@
+﻿html {
+    scrollbar-base-color: #5B7AB1;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-width: 0px;
+    margin-height: 0px;
+}
+
+td {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+th {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+hr {
+    border-bottom: 1px solid #666666;
+}
+
+.header {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+    background-color: hsl(202, 100%, 31%) !important;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(#0084d1, #00649e);
+    border-color: #00649e #00649e hsl(202, 100%, 28.5%);
+    font-weight: bold;
+    margin-left: 10pt;
+    font-size: small;
+}
+
+/* used on options on update screen */
+.optheader {
+    font-size: 11px;
+    color: #FFFFFF;
+    font-weight: bold;
+    background-image: url(/portal/images/popup/header_slice.jpg);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.title {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #46669f;
+    background-image: url(/portal/images/popup/title_slice.jpg);
+    font-weight: bold;
+    margin-left: 10pt;
+    text-align: left;
+}
+
+.centertd {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.lefttd {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: right;
+    white-space: nowrap;
+}
+
+/*used on all labels that do not have help*/
+.lefttdnohelp {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.righttd {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-size: 11px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.righttdwrap {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-size: 11px;
+    text-align: left;
+}
+
+/*used on all labels when help enabled*/
+.righttdhelp {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-size: 11px;
+    text-align: left;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.field {
+    color: #000000;
+    background: #ffffff;
+    border: 1px solid #94a1b6;
+    width: 150px;
+}
+
+fieldset {
+    border: 1px solid #94a1b6;
+    padding-left: 8px;
+    text-align: left;
+}
+
+legend {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    background: #ffffff;
+    padding: 2px 6px
+}
+
+/*used on all labels that display data*/
+.datalabel {
+    font-weight: normal;
+    font-size: 11px;
+    FONT-FAMILY: Arial;
+    color: Black;
+    height: 15px;
+}
+
+/*used on all labels that display data*/
+.stdlabel {
+    font-weight: normal;
+    font-size: 11px;
+    FONT-FAMILY: Arial;
+    color: Black;
+    height: 15px;
+}
+
+/*used on grid pagers*/
+.pagerlabel {
+    font-weight: normal;
+    font-size: 11px;
+    FONT-FAMILY: Arial;
+    color: Black;
+    height: 15px;
+}
+
+/*used on all display only listboxes*/
+.nopicklistbox {
+    font-weight: normal;
+    font-size: 11px;
+    FONT-FAMILY: Arial;
+    color: Black;
+    background-color: white;
+}
+
+/*used on all active listboxes*/
+.picklistbox {
+    font-weight: normal;
+    font-size: 11px;
+    FONT-FAMILY: Arial;
+    color: Black;
+    background-color: White
+}
+
+/*used on all text input fields*/
+.textinput {
+    font-weight: normal;
+    font-size: 11px;
+    FONT-FAMILY: Arial;
+    color: Black;
+    background-color: White
+}
+
+/*used on all drop down lists*/
+.dropdownselect {
+    font-weight: normal;
+    font-size: 11px;
+    FONT-FAMILY: Arial;
+    color: Black;
+    background-color: White;
+    border: solid 1px #94a1b6;
+}
+
+/*used on all drop down lists*/
+.timeinput {
+    font-weight: normal;
+    font-size: 11px;
+    FONT-FAMILY: Arial;
+    color: Black;
+    background-color: White;
+    border: solid 1px steelblue
+}
+
+/*used on all option groups*/
+.optionlist {
+    font-weight: normal;
+    font-size: 11px;
+    FONT-FAMILY: Arial;
+}
+
+/*used on all help fields*/
+.Help {
+    font-weight: bold;
+    font-size: 11px;
+    FONT-FAMILY: Arial;
+    color: green;
+    background-color: white;
+    display: none;
+}
+
+/*used on feature assocations generated grid*/
+.gridheader {
+    FONT-FAMILY: Arial;
+    color: #FFFFFF;
+    background-image: url(/portal/images/popup/header_slice.jpg);
+    font-weight: bold;
+    font-size: 11px;
+    padding: 8px;
+}
+
+/*used on inspection page*/
+.tabbutton {
+    padding: 3px;
+    border: 1px solid #999999;
+    background-color: white;
+    width: 100px;
+    border-bottom: 0px;
+}
+
+.tabbuttonover {
+    padding: 3px;
+    border: 1px solid black;
+    background-color: #94a1b6;
+    width: 100px;
+}
+
+.tabbuttonactive {
+    padding: 3px;
+    border: 1px solid black;
+    background-color: #40609B;
+    width: 100px;
+    color: #ffffff;
+}
+
+.tabpage {
+    OVERFLOW: auto;
+    width: 920px;
+    height: 600px;
+    margin-top: 3px;
+    padding: 3px;
+    border: 1px solid #999999;
+    display: none;
+}
+
+.submitButton {
+    width: 65px !important;
+    height: 20px;
+    background: url(/Portal/Images/Buttons/1/submit_btn.jpg);
+}
+
+.submitButtonOver {
+    width: 65px !important;
+    height: 20px;
+    background: url(/Portal/Images/Buttons/1/submit_btn_over.jpg);
+}
+
+.cancelButton {
+    width: 65px !important;
+    height: 20px;
+    background: url(/Portal/Images/Buttons/1/cancel_btn.jpg);
+}
+
+.cancelButtonOver {
+    width: 65px !important;
+    height: 20px;
+    background: url(/Portal/Images/Buttons/1/cancel_btn_over.jpg);
+}
+
+.addButton {
+    width: 53px !important;
+    height: 20px;
+    background: url(/Portal/Images/Buttons/1/add_btn.jpg);
+}
+
+.addButtonOver {
+    width: 53px !important;
+    height: 20px;
+    background: url(/Portal/Images/Buttons/1/add_btn_over.jpg);
+}
+
+.editButton {
+    width: 54px !important;
+    height: 20px;
+    background: url(/Portal/Images/Buttons/1/edit_btn.jpg);
+}
+
+.editButtonOver {
+    width: 54px !important;
+    height: 20px;
+    background: url(/Portal/Images/Buttons/1/edit_btn_over.jpg);
+}
+
+.deleteButton {
+    width: 65px !important;
+    height: 20px;
+    background: url(/Portal/Images/Buttons/1/remove_btn.jpg);
+}
+
+.deleteButtonOver {
+    width: 65px !important;
+    height: 20px;
+    background: url(/Portal/Images/Buttons/remove_btn_over.jpg);
+}
+
+.downButton {
+    width: 20px;
+    height: 20px;
+    background: url(/Portal/Images/buttons/down_btn.jpg);
+}
+
+.downButtonOver {
+    width: 20px;
+    height: 20px;
+    background: url(/Portal/Images/buttons/down_btn_over.jpg);
+}
+
+.upButton {
+    width: 20px;
+    height: 20px;
+    background: url(/Portal/Images/buttons/up_btn.jpg);
+}
+
+.upButtonOver {
+    width: 20px;
+    height: 20px;
+    background: url(/Portal/Images/buttons/up_btn_over.jpg);
+}
+
+.inspect_popup {
+    padding: 0px;
+    margin: 2px;
+    border: 1px solid #999999;
+    background-color: White;
+}
+
+.inspect_title {
+    float: top;
+    background-color: #40609B;
+    color: white;
+    font-size: 16px;
+    padding-top: 10px;
+    height: 25px;
+    border-bottom: 1px solid #999999;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Used on Statistics page */
+.st_bar_def {
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: lightsteelblue 1px solid;
+    background-color: red;
+}
+
+.st_summary_table {
+    font-size: 10px;
+    font-family: Arial;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.st_header {
+    border-right: lightsteelblue 1px solid;
+    border-top: white 1px solid;
+    border-left: white 1px solid;
+    width: 30px;
+    border-bottom: lightsteelblue 1px solid;
+    background-color: lightsteelblue;
+}
+
+.st_day_header {
+    border-right: lightsteelblue 1px solid;
+    border-top: white 1px solid;
+    border-left: white 1px solid;
+    width: 120px;
+    border-bottom: lightsteelblue 1px solid;
+    background-color: lightsteelblue;
+    text-align: left;
+}
+
+.st_day_cell {
+    border-right: lightsteelblue 1px solid;
+    border-bottom: lightsteelblue 1px solid;
+    text-align: left;
+}
+
+.st_zero_hits_cell {
+    border-right: lightsteelblue 1px solid;
+    border-bottom: lightsteelblue 1px solid;
+    text-align: center;
+}
+
+.st_five_hits_cell {
+    border-right: lightsteelblue 1px solid;
+    border-bottom: lightsteelblue 1px solid;
+    background-color: #cdcdcd;
+    text-align: center;
+}
+
+.st_ten_hits_cell {
+    border-right: lightsteelblue 1px solid;
+    border-bottom: lightsteelblue 1px solid;
+    background-color: #b9b9b9;
+    text-align: center;
+}
+
+.st_fifteen_hits_cell {
+    border-right: lightsteelblue 1px solid;
+    border-bottom: lightsteelblue 1px solid;
+    background-color: #a5a5a5;
+    text-align: center;
+}
+
+.st_twenty_hits_cell {
+    border-right: lightsteelblue 1px solid;
+    border-bottom: lightsteelblue 1px solid;
+    background-color: #969696;
+    text-align: center;
+}
+
+.st_more_hits_cell {
+    border-right: lightsteelblue 1px solid;
+    border-bottom: lightsteelblue 1px solid;
+    background-color: #808080;
+    text-align: center;
+}
+
+.st_spacer_row {
+    border-right: 0px;
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 0px;
+    height: 10px;
+    background-color: #f2f2f2;
+}
+
+.st_spacer_cell {
+    border-right: lightsteelblue 1px solid;
+    border-bottom: lightsteelblue 1px solid;
+}
+
+.st_blank_cell {
+    border-bottom: lightsteelblue 1px solid;
+    background-color: #f2f2f2;
+}
+
+.st_blank_cell2 {
+    background-color: #f2f2f2;
+}
+
+.st_graph_row {
+    border-left: lightsteelblue 1px solid;
+    height: 25px;
+    background-color: #f2f2f2;
+}
+
+.st_graph_cell {
+    padding-right: 1px;
+    padding-left: 1px;
+    background: url(/portal/images/chart_back.gif) #f2f2f2;
+    padding-bottom: 1px;
+    padding-top: 1px;
+}
+
+.st_graph_header {
+    border-right: lightsteelblue 1px solid;
+    padding-right: 1px;
+    padding-left: 1px;
+    background: url(/portal/images/chart_back.gif) #f2f2f2;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    text-align: right;
+}
+
+.st_graph_cell_last {
+    border-right: lightsteelblue 1px solid;
+    padding-right: 1px;
+    padding-left: 1px;
+    background: url(/portal/images/chart_back.gif) #f2f2f2;
+    padding-bottom: 1px;
+    padding-top: 1px;
+}
+
+.st_row_header {
+    border-right: lightsteelblue 1px solid;
+    background-color: #f2f2f2;
+}
+
+.st_main {
+    border-right: lightsteelblue 1px solid;
+    border-top: lightsteelblue 1px solid;
+    border-left: lightsteelblue 1px solid;
+    border-bottom: lightsteelblue 1px solid;
+    background-color: #f2f2f2;
+}
+
+.st_main_table {
+    background-color: #f2f2f2;
+}
+
+.st_vehicle_table {
+    border-right: lightsteelblue 1px solid;
+    border-top: lightsteelblue 1px solid;
+    border-left: lightsteelblue 1px solid;
+    border-bottom: lightsteelblue 1px solid;
+}
+
+.centerBtn table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.textWrap {
+    white-space: normal;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.webEditDDLFix {
+    position: relative;
+}
+
+#pop_overlay {
+    visibility: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 100;
+    background-image: url('/images/overlayBKG.png');
+    background-repeat: repeat;
+}
+
+#MainContent_tbExteriorDamageDescription {
+    width: 200%;
+}
+
+#MainContent_tbInteriorDamageDescription {
+    width: 200%;
+}
+
+.TireTable {
+    display: table;
+    margin: auto;
+    border-spacing: 10px;
+}
+
+.CRGrid {
+    overflow-y: scroll;
+    overflow-x: scroll;
+    height: calc(100vh - 400px);
+}
+
+.CROverlay {
+    width: 50% !important;
+    margin-left: 25% !important;
+    margin-top: calc(50vh - 200px);
+}
+
+.CRContainer {
+    height: 90%;
+}
+
+.jsgrid-grid-body {
+    height: calc(100vh - 470px) !important;
+}
+
+@media(max-width:768px) {
+    .TireTable {
+        border-spacing: 0px !important;
+        width: 100%;
+    }
+
+    .CRGrid {
+        height: calc(100vh - 350px) !important;
+    }
+
+    .SmallActionButton {
+        width: 60px !important;
+    }
+
+    .CROverlay {
+        display: block;
+        width: 100% !important;
+        margin-left: 0% !important;
+        margin-top: 10%;
+    }
+
+    .CRContainer {
+        height: auto;
+    }
+
+    .jsgrid-grid-body {
+        height: calc(100vh - 450px) !important;
+    }
+
+    .outlineImage {
+        width: 100% !important;
+    }
+}
+
+@media(max-height:700px) {
+    .CRGrid {
+        height: calc(100vh - 310px) !important;
+    }
+
+    .jsgrid-grid-body {
+        height: calc(100vh - 390px) !important;
+    }
+}
+
+.outlineImage {
+    width: 75%;
+    margin: auto;
+}

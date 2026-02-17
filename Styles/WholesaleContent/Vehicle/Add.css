@@ -1,0 +1,46 @@
+﻿.sectionFieldset legend {
+    border: 0 !important;
+    background-color: transparent;
+}
+
+.ColRowSwapLabel {
+    padding: 2px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.ContentTable {
+    display: table;
+    margin: auto;
+    padding: 20px 20px 0px 20px;
+}
+
+.ContentFinal {
+    padding-bottom: 20px;
+    text-align-last: center;
+}
+
+.Content {
+    display: table;
+    margin: 0px auto;
+}
+
+@media(max-width:768px) {
+    .addVehicle {
+        overflow-y: scroll;
+        height: calc(100vh - 95px) !important;
+    }
+
+    .ContentTable {
+        padding: 0px !important;
+    }
+
+    .ContentFinal {
+        padding-bottom: 0px !important;
+    }
+
+    .Content {
+        width: 100%;
+        margin: 0px !important;
+    }
+}

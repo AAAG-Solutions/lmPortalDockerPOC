@@ -1,0 +1,9 @@
+﻿Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Liquid Motors\Portal]
+"MaintMsg"=""
+"MaintTitle"=""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Liquid Motors\Portal]
+"MaintMsg"=""
+"MaintTitle"=""

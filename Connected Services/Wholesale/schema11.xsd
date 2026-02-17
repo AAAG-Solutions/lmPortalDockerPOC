@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://liquidmotors.com/webservices/" elementFormDefault="qualified" targetNamespace="http://liquidmotors.com/webservices/" id="schema1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="GetWholesale">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWholesaleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetWholesaleResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="lmReturnValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Values" type="tns:SerializableDictionary" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Result" type="tns:ReturnCode" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ResultString" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Data">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:element ref="xs:schema" />
+            <xs:any />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SerializableDictionary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfKeyValuePair" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfKeyValuePair">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValuePair" nillable="true" type="tns:KeyValuePair" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="KeyValuePair">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Key" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ReturnCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LM_SUCCESS" />
+      <xs:enumeration value="LM_INVALIDSESSION" />
+      <xs:enumeration value="LM_RELAYCOMMERROR" />
+      <xs:enumeration value="LM_DBERROR" />
+      <xs:enumeration value="LM_MISSINGASSOCIATIONS" />
+      <xs:enumeration value="LM_GENERICERROR" />
+      <xs:enumeration value="LM_SECURITYERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GetWholesaleWP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="pagenumber" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="itemsperpage" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" name="sort" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="vinfilter" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="yearfilter" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="makefilter" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="modelfilter" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="stockfilter" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="StockType" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="InventoryStatus" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="ListedAtAuction" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="Inspected" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" name="LotLocation" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWholesaleWPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetWholesaleWPResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitToAllAuction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kListing" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" name="ds">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitToAllAuctionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SubmitToAllAuctionResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitMultiListingToAuction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" name="ds">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitMultiListingToAuctionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SubmitMultiListingToAuctionResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WholesaleAutoLaunchTextGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WholesaleAutoLaunchTextGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="WholesaleAutoLaunchTextGetResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WholesaleAutoLaunchSetData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" name="ds">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WholesaleAutoLaunchSetDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="WholesaleAutoLaunchSetDataResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WholesaleBlackoutTextGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WholesaleBlackoutTextGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="WholesaleBlackoutTextGetResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WholesaleBlackoutSetData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" name="ds">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WholesaleBlackoutSetDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="WholesaleBlackoutSetDataResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InspectionCompanyGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InspectionCompanyGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="InspectionCompanyGetResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InspectionCompanySet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kWholesaleInspectionCompany" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Username" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Password" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="ContactName" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="ContactEmail" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="ContactPhone" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InspectionCompanySetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="InspectionCompanySetResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WholesaleInspectionRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kDealer" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kWholesaleInspectionCompany" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kListing" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WholesaleInspectionRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="WholesaleInspectionRequestResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

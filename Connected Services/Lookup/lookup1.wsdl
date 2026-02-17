@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://services.liquidmotors.com" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://services.liquidmotors.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema targetNamespace="http://services.liquidmotors.com">
+      <s:import schemaLocation="http://wpsandservices.liquidmotors.com/api/lookup.asmx?schema=schema1" namespace="http://liquidmotors.com/webservices/" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDealerListSoapIn">
+    <wsdl:part xmlns:q1="http://liquidmotors.com/webservices/" name="parameters" element="q1:GetDealerList" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerListSoapOut">
+    <wsdl:part xmlns:q2="http://liquidmotors.com/webservices/" name="parameters" element="q2:GetDealerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListingOptionListSoapIn">
+    <wsdl:part xmlns:q3="http://liquidmotors.com/webservices/" name="parameters" element="q3:GetListingOptionList" />
+  </wsdl:message>
+  <wsdl:message name="GetListingOptionListSoapOut">
+    <wsdl:part xmlns:q4="http://liquidmotors.com/webservices/" name="parameters" element="q4:GetListingOptionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMakeListSoapIn">
+    <wsdl:part xmlns:q5="http://liquidmotors.com/webservices/" name="parameters" element="q5:GetMakeList" />
+  </wsdl:message>
+  <wsdl:message name="GetMakeListSoapOut">
+    <wsdl:part xmlns:q6="http://liquidmotors.com/webservices/" name="parameters" element="q6:GetMakeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetModelListSoapIn">
+    <wsdl:part xmlns:q7="http://liquidmotors.com/webservices/" name="parameters" element="q7:GetModelList" />
+  </wsdl:message>
+  <wsdl:message name="GetModelListSoapOut">
+    <wsdl:part xmlns:q8="http://liquidmotors.com/webservices/" name="parameters" element="q8:GetModelListResponse" />
+  </wsdl:message>
+  <wsdl:message name="InspectionCompanyListGetSoapIn">
+    <wsdl:part xmlns:q9="http://liquidmotors.com/webservices/" name="parameters" element="q9:InspectionCompanyListGet" />
+  </wsdl:message>
+  <wsdl:message name="InspectionCompanyListGetSoapOut">
+    <wsdl:part xmlns:q10="http://liquidmotors.com/webservices/" name="parameters" element="q10:InspectionCompanyListGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListingsByVINSoapIn">
+    <wsdl:part xmlns:q11="http://liquidmotors.com/webservices/" name="parameters" element="q11:GetListingsByVIN" />
+  </wsdl:message>
+  <wsdl:message name="GetListingsByVINSoapOut">
+    <wsdl:part xmlns:q12="http://liquidmotors.com/webservices/" name="parameters" element="q12:GetListingsByVINResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiAuctionCredentialsByDealerSoapIn">
+    <wsdl:part xmlns:q13="http://liquidmotors.com/webservices/" name="parameters" element="q13:GetMultiAuctionCredentialsByDealer" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiAuctionCredentialsByDealerSoapOut">
+    <wsdl:part xmlns:q14="http://liquidmotors.com/webservices/" name="parameters" element="q14:GetMultiAuctionCredentialsByDealerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAuctionCredentialsByDealerByAuctionSoapIn">
+    <wsdl:part xmlns:q15="http://liquidmotors.com/webservices/" name="parameters" element="q15:GetAuctionCredentialsByDealerByAuction" />
+  </wsdl:message>
+  <wsdl:message name="GetAuctionCredentialsByDealerByAuctionSoapOut">
+    <wsdl:part xmlns:q16="http://liquidmotors.com/webservices/" name="parameters" element="q16:GetAuctionCredentialsByDealerByAuctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWholesaleAuctionFuelTypeSoapIn">
+    <wsdl:part xmlns:q17="http://liquidmotors.com/webservices/" name="parameters" element="q17:GetWholesaleAuctionFuelType" />
+  </wsdl:message>
+  <wsdl:message name="GetWholesaleAuctionFuelTypeSoapOut">
+    <wsdl:part xmlns:q18="http://liquidmotors.com/webservices/" name="parameters" element="q18:GetWholesaleAuctionFuelTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="WholesaleUserDefaultUserGetSoapIn">
+    <wsdl:part xmlns:q19="http://liquidmotors.com/webservices/" name="parameters" element="q19:WholesaleUserDefaultUserGet" />
+  </wsdl:message>
+  <wsdl:message name="WholesaleUserDefaultUserGetSoapOut">
+    <wsdl:part xmlns:q20="http://liquidmotors.com/webservices/" name="parameters" element="q20:WholesaleUserDefaultUserGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GridDescriptionGetSoapIn">
+    <wsdl:part xmlns:q21="http://liquidmotors.com/webservices/" name="parameters" element="q21:GridDescriptionGet" />
+  </wsdl:message>
+  <wsdl:message name="GridDescriptionGetSoapOut">
+    <wsdl:part xmlns:q22="http://liquidmotors.com/webservices/" name="parameters" element="q22:GridDescriptionGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserListGetSoapIn">
+    <wsdl:part xmlns:q23="http://liquidmotors.com/webservices/" name="parameters" element="q23:UserListGet" />
+  </wsdl:message>
+  <wsdl:message name="UserListGetSoapOut">
+    <wsdl:part xmlns:q24="http://liquidmotors.com/webservices/" name="parameters" element="q24:UserListGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="PhotoTagListGetSoapIn">
+    <wsdl:part xmlns:q25="http://liquidmotors.com/webservices/" name="parameters" element="q25:PhotoTagListGet" />
+  </wsdl:message>
+  <wsdl:message name="PhotoTagListGetSoapOut">
+    <wsdl:part xmlns:q26="http://liquidmotors.com/webservices/" name="parameters" element="q26:PhotoTagListGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="CertificationListGetSoapIn">
+    <wsdl:part xmlns:q27="http://liquidmotors.com/webservices/" name="parameters" element="q27:CertificationListGet" />
+  </wsdl:message>
+  <wsdl:message name="CertificationListGetSoapOut">
+    <wsdl:part xmlns:q28="http://liquidmotors.com/webservices/" name="parameters" element="q28:CertificationListGetResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LookupSoap">
+    <wsdl:operation name="GetDealerList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a List of Dealers for this User</wsdl:documentation>
+      <wsdl:input message="tns:GetDealerListSoapIn" />
+      <wsdl:output message="tns:GetDealerListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListingOptionList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a List of Options for a Vehicle</wsdl:documentation>
+      <wsdl:input message="tns:GetListingOptionListSoapIn" />
+      <wsdl:output message="tns:GetListingOptionListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMakeList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a List of ALL available Makes</wsdl:documentation>
+      <wsdl:input message="tns:GetMakeListSoapIn" />
+      <wsdl:output message="tns:GetMakeListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModelList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a List of ALL available Models for a Given Make</wsdl:documentation>
+      <wsdl:input message="tns:GetModelListSoapIn" />
+      <wsdl:output message="tns:GetModelListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InspectionCompanyListGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a list of inspection companies to request an inspection</wsdl:documentation>
+      <wsdl:input message="tns:InspectionCompanyListGetSoapIn" />
+      <wsdl:output message="tns:InspectionCompanyListGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListingsByVIN">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return a list of listings that matched a certain part of a VIN</wsdl:documentation>
+      <wsdl:input message="tns:GetListingsByVINSoapIn" />
+      <wsdl:output message="tns:GetListingsByVINSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiAuctionCredentialsByDealer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return a list of set auction credentials for a given dealer</wsdl:documentation>
+      <wsdl:input message="tns:GetMultiAuctionCredentialsByDealerSoapIn" />
+      <wsdl:output message="tns:GetMultiAuctionCredentialsByDealerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuctionCredentialsByDealerByAuction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return a list of credentials for a given auction for a given dealer</wsdl:documentation>
+      <wsdl:input message="tns:GetAuctionCredentialsByDealerByAuctionSoapIn" />
+      <wsdl:output message="tns:GetAuctionCredentialsByDealerByAuctionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWholesaleAuctionFuelType">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return a list of Fuel Types that can be selected</wsdl:documentation>
+      <wsdl:input message="tns:GetWholesaleAuctionFuelTypeSoapIn" />
+      <wsdl:output message="tns:GetWholesaleAuctionFuelTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleUserDefaultUserGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return User Set Preferences for Vehicle Management</wsdl:documentation>
+      <wsdl:input message="tns:WholesaleUserDefaultUserGetSoapIn" />
+      <wsdl:output message="tns:WholesaleUserDefaultUserGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GridDescriptionGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get GridDef either given a kDealer|kPerson or both</wsdl:documentation>
+      <wsdl:input message="tns:GridDescriptionGetSoapIn" />
+      <wsdl:output message="tns:GridDescriptionGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserListGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a full list of active users in the system</wsdl:documentation>
+      <wsdl:input message="tns:UserListGetSoapIn" />
+      <wsdl:output message="tns:UserListGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PhotoTagListGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a full list of tags for Modify Photos</wsdl:documentation>
+      <wsdl:input message="tns:PhotoTagListGetSoapIn" />
+      <wsdl:output message="tns:PhotoTagListGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CertificationListGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a list of Certification Types</wsdl:documentation>
+      <wsdl:input message="tns:CertificationListGetSoapIn" />
+      <wsdl:output message="tns:CertificationListGetSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LookupSoap" type="tns:LookupSoap">
+    <wsdl:documentation>
+      <wsi:Claim conformsTo="http://ws-i.org/profiles/basic/1.1" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" />
+    </wsdl:documentation>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDealerList">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetDealerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListingOptionList">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetListingOptionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMakeList">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetMakeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModelList">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetModelList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InspectionCompanyListGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/InspectionCompanyListGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListingsByVIN">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetListingsByVIN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiAuctionCredentialsByDealer">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetMultiAuctionCredentialsByDealer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuctionCredentialsByDealerByAuction">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetAuctionCredentialsByDealerByAuction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWholesaleAuctionFuelType">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetWholesaleAuctionFuelType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleUserDefaultUserGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/WholesaleUserDefaultUserGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GridDescriptionGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GridDescriptionGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserListGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/UserListGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhotoTagListGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/PhotoTagListGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CertificationListGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/CertificationListGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LookupSoap12" type="tns:LookupSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDealerList">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetDealerList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListingOptionList">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetListingOptionList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMakeList">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetMakeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModelList">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetModelList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InspectionCompanyListGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/InspectionCompanyListGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListingsByVIN">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetListingsByVIN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiAuctionCredentialsByDealer">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetMultiAuctionCredentialsByDealer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuctionCredentialsByDealerByAuction">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetAuctionCredentialsByDealerByAuction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWholesaleAuctionFuelType">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetWholesaleAuctionFuelType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WholesaleUserDefaultUserGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/WholesaleUserDefaultUserGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GridDescriptionGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GridDescriptionGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserListGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/UserListGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhotoTagListGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/PhotoTagListGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CertificationListGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/CertificationListGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

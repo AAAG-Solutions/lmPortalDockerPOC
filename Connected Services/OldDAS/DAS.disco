@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://testing.liquidmotors.com/WebServices/DAS/DAS.asmx?wsdl" docRef="http://testing.liquidmotors.com/WebServices/DAS/DAS.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://testing.liquidmotors.com/WebServices/DAS/DAS.asmx" xmlns:q1="https://protal.liquidmotors.com" binding="q1:DASSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://testing.liquidmotors.com/WebServices/DAS/DAS.asmx" xmlns:q2="https://protal.liquidmotors.com" binding="q2:DASSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

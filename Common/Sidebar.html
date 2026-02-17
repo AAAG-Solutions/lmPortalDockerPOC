@@ -1,0 +1,38 @@
+﻿<div id="menu_items" class="sidepanelClosed">
+    <!-- Navigation Menu Items -->
+    <div id="navigation_menu_title">
+        <h2 class="panel-title">
+            <a title="Home" id="homeButton" href="/WholesaleContent/WholesaleDefault.aspx"><img id="homeIcon" src="/Images/fa-icons/home.svg" />&nbsp;&nbsp;Home</a>
+        </h2>
+        <h2 class="panel-title" onclick="ocToggleSidebar();">
+            <a title="Vehicle Management" id="inven" data-toggle="collapse" href="#inventory_menu"><img id="inventory" src="/Images/fa-icons/car.svg" />&nbsp;&nbsp;Inventory</a>
+        </h2>
+        <div id="inventory_menu" class="panel-collapse collapse">
+            <ul class="list-group">
+                <li class="list-group-item"><a id="addVehicle" href="/WholesaleContent/Vehicle/Add.aspx">Add Vehicle</a></li>
+                <li class="list-group-item"><a id="inventorySearch" href="/WholesaleContent/Vehicle/Search.aspx">VIN Search</a></li>
+                <li class="list-group-item"><a id="vehicleManagement" href="/WholesaleContent/VehicleManagement.aspx">Vehicle Management</a></li>
+                <li class="list-group-item"><a id="importInventory" href="/WholesaleContent/ImportInventory.aspx">Import Inventory</a></li>
+                <li class="list-group-item smallHide"><a id="MultiWholesaleStart" href="/WholesaleContent/Auction/MultiStart.aspx">Start Wholesale</a></li>
+                <li class="list-group-item smallHide"><a id="MultiWholesaleEnd" href="/WholesaleContent/Auction/MultiEnd.aspx">End Wholesale</a></li>
+            </ul>
+        </div>
+        <h2 class="panel-title" onclick="ocToggleSidebar();">
+            <a title="Reporting" id="report" data-toggle="collapse" href="#reporting_menu"><img id="reporting" src="/Images/fa-icons/chart-bar.svg" />&nbsp;&nbsp;Reporting</a>
+        </h2>
+        <div id="reporting_menu" class="panel-collapse collapse">
+            <ul class="list-group">
+                <li class="list-group-item"><a id="Status" href="/WholesaleContent/Reporting/Status.aspx">Dashboard</a></li>
+                <li class="list-group-item"><a id="sdApproval" href="/WholesaleContent/Reporting/SalesDataApproval.aspx">Sales Data &nbsp;&nbsp; Approval</a></li>
+                <li class="list-group-item"><a id="sdApproval" href="/WholesaleContent/Reporting/CreditRequest.aspx">Credit Request</a></li>
+            </ul>
+        </div>
+        <h2 class="panel-title">
+            <a title="Preferences" id="preferences" href="/WholesaleContent/AccountPreferences.aspx"><img id="preferenceIcon" src="/Images/fa-icons/cog.svg" />&nbsp;&nbsp;Preferences</a>
+        </h2>
+        <h2 class="panel-title">
+            <a title="Training" id="training" href="/WholesaleContent/TrainingVideos.aspx"><img id="trainingIcon" src="/Images/fa-icons/circle-play.svg" />&nbsp;&nbsp;Training Videos</a>
+        </h2>
+    </div>
+</div>
+<div><button id="sidebar_button" class="closeBtn" onclick="toggleSidebar(); return false;" /></div>

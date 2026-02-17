@@ -1,0 +1,202 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="LMWholesale.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3YVJ07S2NS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3YVJ07S2NS');
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Liquid Motors Wholesale Marketing</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Styles/css" />
+    <link href="~/Styles/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body>
+    <form runat="server">
+        <header>
+            <asp:ContentPlaceHolder ID="HeaderPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+            <nav class="navbar navbar-expand-md navbar-lmi navbar-light bg-faded fixed-top navbar-lmi-border" id="WholesalePortalHeader" runat="server">
+                <div class="navbar-brand navbarBranding">
+                    <img id="LMLogo" src="/Images/lmi.png" class="headerLogo"/>
+                    <div class="navbarProduct">
+                        Wholesale Portal
+                    </div>
+                    <div class="navbarPageTitle">
+                        <asp:Label ID="lblPageTitle" runat="server"></asp:Label>
+                    </div>
+                </div>
+
+                <div class="row" style="width:100%;">
+                    <div id="headerDevInfo" runat="server">
+                        <div id="devInfoModal" class="modalPopup">
+                            <div class="modalContent">
+                                <div class="modalHeader">
+                                    <span class="closeModalButton" onclick="toggleCssClass([['devInfoModal','show_display']]); return false;">&times;</span>
+                                    <h2 style="text-align: center;">Dev Info</h2>
+                                </div>
+                                <div class="modalBody">
+                                    <br/>
+                                    <asp:label id="lblSession" runat="server">Session ID: </asp:label>
+                                    <asp:label id="SessionID" runat="server" CssClass="underline"></asp:label>
+                                    <br/>
+                                    <asp:label id="lblAccountID" runat="server">Account ID: </asp:label>
+                                    <asp:label id="AccountID" runat="server" CssClass="underline"></asp:label>
+                                    <br/>
+                                    <asp:label id="lblUserID" runat="server">User ID: </asp:label>
+                                    <asp:label id="UserID" runat="server" CssClass="underline"></asp:label>
+                                    <br/>
+                                    <asp:label id="lblIdentity" runat="server">Identity: </asp:label>
+                                    <asp:label id="Identity" runat="server" CssClass="underline"></asp:label>
+                                    <br/>
+                                    <asp:label id="lblBranch" runat="server">Source: </asp:label>
+                                    <asp:label id="SourceBranch" runat="server" CssClass="underline"></asp:label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <asp:Label ID="headerAccountName" runat="server" CssClass="headerAccountName" Style=""></asp:Label>
+                    </div>
+                    <div class="col">
+                        <asp:Label ID="vinSearch" runat="server" CssClass="headerVinSearch"><a style="color:white;" href="/WholesaleContent/Vehicle/Search.aspx">VIN Search</a></asp:Label>
+                    </div>
+                    <div class="col" style="display:none;">
+                        <div ID="responseTime" runat="server" style="align-content: center;text-align: -webkit-right;height: 100%;color:white;text-decoration:underline;"></div>
+                    </div>
+                    <div class="navDropdown col-1 row">
+                        <div id="helpIcon" runat="server" style="display:none;">
+                            <a id="HelpLink" runat="server"><img id="playIcon" style="padding:0 !important;height:30px;width:30px;" src="/Images/fa-icons/circle-play.svg" title="User Managed AutoLaunch Help"/></a>
+                        </div>
+                        <button id="navButton" class="dropdownButton float-right" onclick="toggleCssClass([['navContent','openContent'],['navButton','openDropdown']]); return false;"></button>
+                        <div id="navContent" class="dropdownContent">
+                            <a id="accountNameDropdown" class="dropdownAccount" href="#" runat="server">Account Name:<br><asp:label id="lblHeaderDealerName" runat="server" CssClass="headerText"></asp:label></a>
+                            <a id="vehicleSearch" runat="server" href="/WholesaleContent/Vehicle/Search.aspx" class="actionBackground dropdownVehicleSearch" style="cursor: pointer; text-align: center;">Go To Vehicle Search</a>
+                            <a id="dealerSelect" runat="server" href="/WholesaleContent/WholesaleDefault.aspx" class="actionBackground dropdownVehicleSearch" style="cursor: pointer; text-align: center;">Go To Dealer Select</a>
+                            <asp:LinkButton Id="logoutBtn" OnCommand="Logout" CommandArgument="TestLogOut" CommandName="LogOut1" runat="server" class="actionBackground" style="cursor: pointer; text-align: center;">Log Out</asp:LinkButton>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="page-wrapper" id="MainBody" runat="server">
+            <asp:ScriptManager runat="server">
+                <Scripts>
+                    <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                    <%--Framework Scripts--%>
+                    <asp:ScriptReference Name="MsAjaxBundle" />
+                    <asp:ScriptReference Name="jquery" />
+                    <asp:ScriptReference Name="bootstrap" />
+                    <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                    <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                    <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                    <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                    <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                    <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                    <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                    <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                    <asp:ScriptReference Name="WebFormsBundle" />
+                    <%--Site Scripts--%>
+                </Scripts>
+            </asp:ScriptManager>
+
+            <script type="text/javascript" src="/Scripts/Util.js?lmV=<%Response.Write(Application["ContentVersion"]);%>"></script>
+            <script type="text/javascript">
+                document.onreadystatechange = function () {
+                    let img = document.getElementById('LMLogo');
+                    if (img != null) { img.addEventListener('click', clickies); }
+                }
+
+                var clickCount = 0;
+                var timeout = 500;
+
+                function clickies() {
+                    var text = document.getElementById('SessionID');
+
+                    if (!text)
+                        return false;
+
+                    var iText = text.innerHTML;
+                    clickCount++;
+                    if (clickCount == 1) {
+                        setTimeout(function () {
+                            if (clickCount == 1) {
+                                navigator.clipboard.writeText(iText).then(function () {
+                                    alert("Session ID copied!");
+                                });
+                            } else {
+                                toggleCssClass([["devInfoModal","show_display"]]);
+                            }
+                            clickCount = 0;
+                        }, timeout);
+                    }
+                };
+
+                window.addEventListener('pageshow', function (event) {
+                    if (event.persisted && IsLiquidConnect()) {
+                        window.location.reload();
+                    }
+                });
+
+                $(document).ready(function () {
+                    if (IsLiquidConnect() && document.getElementsByClassName("navbarProduct")[0] != null) {
+                        document.getElementsByClassName("navbarProduct")[0].innerHTML = '\n                        Liquid Connect\n                    ';
+                    }
+                });
+                
+                // We do have access to Session so we can add to Google Analytics
+                //alert(Response.Write(Session["kSession"]););
+            </script>
+
+            <style type="text/css">
+                .underline {text-decoration: underline;}
+                @media (max-width: 767px) {.navbar {flex-wrap: unset;}}
+            </style>
+
+            <asp:HiddenField ID="showPreferences" runat="server" Value="" />
+            <asp:HiddenField ID="internalFlag" runat="server" Value="" />
+            <asp:HiddenField ID="gtagkPerson" runat="server" Value="" />
+            <asp:HiddenField ID="gtagkDealer" runat="server" Value="" />
+            <div class="container-fluid body-content">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+                <div id="LoadingMask" class="LoadingMask">
+                    <div id="loadingHolder" class="loadingHolder" runat="server">
+                        <asp:Label ID="LoadingLabel" runat="server" Text="Your data is now being submitted." Font-Bold="True"></asp:Label>
+                        <br />
+                        <img id="LoadingSpinner" src='../../Images/loading_icon.gif' alt='loading' />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <footer class="page-footer row">
+            <asp:ContentPlaceHolder ID="FooterExtrasHolder" runat="server">
+            </asp:ContentPlaceHolder>
+            <div class="col-12 col-sm-6 text-center npr-col">
+                &copy; 2005 - <%: DateTime.Now.Year %> | Liquid Motors Inc. All Rights Reserved.
+            </div>
+            <div class="col-sm-6 text-center npr-col">
+                <a href="http://www.liquidmotors.com/termsofuse.aspx" target="blank" >Terms of Use</a>
+                | <a href="http://www.liquidmotors.com/copyright.aspx" target="blank">Copyright</a>
+                | <a href="http://www.liquidmotors.com/privacy.aspx" target="blank">Privacy Policy</a>
+            </div>
+        </footer>
+    </form>
+</body>
+</html>

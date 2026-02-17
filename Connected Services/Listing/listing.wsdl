@@ -1,0 +1,1387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://liquidmotors.com/webservices/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://liquidmotors.com/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://liquidmotors.com/webservices/">
+      <s:element name="UpdateGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateGetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="lmReturnValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Values" type="tns:SerializableDictionary" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="tns:ReturnCode" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SerializableDictionary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfKeyValuePair" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfKeyValuePair">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="KeyValuePair" nillable="true" type="tns:KeyValuePair" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="KeyValuePair">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ReturnCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="LM_SUCCESS" />
+          <s:enumeration value="LM_INVALIDSESSION" />
+          <s:enumeration value="LM_RELAYCOMMERROR" />
+          <s:enumeration value="LM_DBERROR" />
+          <s:enumeration value="LM_MISSINGASSOCIATIONS" />
+          <s:enumeration value="LM_GENERICERROR" />
+          <s:enumeration value="LM_SECURITYERROR" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="UpdateSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vehicle">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateSetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WPUpdateSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jsonData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WPUpdateSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WPUpdateSetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingDetailGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kDealer" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="thin" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingDetailGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListingDetailGetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingDetailSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="InvListPrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="InternetPrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kInventoryStatus" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FastQuote" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LotLocation" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RunPricing" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingDetailSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListingDetailSetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingAuctionDataGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kDealer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kListing" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingAuctionDataGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListingAuctionDataGetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingSingleAuctionDataGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kWholesaleAuction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kDealer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kListing" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingSingleAuctionDataGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListingSingleAuctionDataGetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SellUnsellVehicle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kListing" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kInventoryStatus" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SellUnsellVehicleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SellUnsellVehicleResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingStatusCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kSession" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kDealer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingStatusCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListingStatusCheckResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VehicleSoldSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kSession" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kDealer" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SalePrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kGroundingDealer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VehicleSoldSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VehicleSoldSetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVehicle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kDealer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVehicleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteVehicleResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PhotosToProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PhotosToProcessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PhotosToProcessResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EbayCategoryGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kMake" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kModel" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StyleID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentCategory" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EbayCategoryGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EbayCategoryGetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RandomTitleGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RandomTitleGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RandomTitleGetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PhotoImport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Padding" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Manual" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PhotoImportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PhotoImportResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListingPaths">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListingPathsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListingPathsResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateTemplate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateTemplateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerateTemplateResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPhotographs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SaveLocation" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPhotographsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddPhotographsResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingLotLocationListGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kDealer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingLotLocationListGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListingLotLocationListGetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingVehicleNotesGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingVehicleNotesGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListingVehicleNotesGetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingVehicleNotesSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Session" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="vehicleNoteId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="noteString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingVehicleNotesSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListingVehicleNotesSetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingGetPhotos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kSession" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingGetPhotosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListingGetPhotosResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingVehicleGetPhotos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kSession" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListingVehicleGetPhotosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListingVehicleGetPhotosResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPhotographsExplicit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kSession" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="uploadPath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extList" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="photoType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPhotographsExplicitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddPhotographsExplicitResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMakeModel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kSession" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kMake" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMakeModelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddMakeModelResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VehicleClassSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kSession" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kListing" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kVehicleClass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VehicleClassSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VehicleClassSetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MarkVehicleUnavailable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kSession" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kListing" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MarkVehicleUnavailableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MarkVehicleUnavailableResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReorderPhotos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kSession" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kListing" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhotoOrder" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReorderPhotosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReorderPhotosResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssignDamagePhoto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kSession" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kListing" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OperationCode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kPhoto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kWholesaleListingDamage" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssignDamagePhotoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AssignDamagePhotoResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdateGetSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateGet" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGetSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSetSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSet" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSetSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="WPUpdateSetSoapIn">
+    <wsdl:part name="parameters" element="tns:WPUpdateSet" />
+  </wsdl:message>
+  <wsdl:message name="WPUpdateSetSoapOut">
+    <wsdl:part name="parameters" element="tns:WPUpdateSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListingDetailGetSoapIn">
+    <wsdl:part name="parameters" element="tns:ListingDetailGet" />
+  </wsdl:message>
+  <wsdl:message name="ListingDetailGetSoapOut">
+    <wsdl:part name="parameters" element="tns:ListingDetailGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListingDetailSetSoapIn">
+    <wsdl:part name="parameters" element="tns:ListingDetailSet" />
+  </wsdl:message>
+  <wsdl:message name="ListingDetailSetSoapOut">
+    <wsdl:part name="parameters" element="tns:ListingDetailSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListingAuctionDataGetSoapIn">
+    <wsdl:part name="parameters" element="tns:ListingAuctionDataGet" />
+  </wsdl:message>
+  <wsdl:message name="ListingAuctionDataGetSoapOut">
+    <wsdl:part name="parameters" element="tns:ListingAuctionDataGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListingSingleAuctionDataGetSoapIn">
+    <wsdl:part name="parameters" element="tns:ListingSingleAuctionDataGet" />
+  </wsdl:message>
+  <wsdl:message name="ListingSingleAuctionDataGetSoapOut">
+    <wsdl:part name="parameters" element="tns:ListingSingleAuctionDataGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="SellUnsellVehicleSoapIn">
+    <wsdl:part name="parameters" element="tns:SellUnsellVehicle" />
+  </wsdl:message>
+  <wsdl:message name="SellUnsellVehicleSoapOut">
+    <wsdl:part name="parameters" element="tns:SellUnsellVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListingStatusCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:ListingStatusCheck" />
+  </wsdl:message>
+  <wsdl:message name="ListingStatusCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:ListingStatusCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="VehicleSoldSetSoapIn">
+    <wsdl:part name="parameters" element="tns:VehicleSoldSet" />
+  </wsdl:message>
+  <wsdl:message name="VehicleSoldSetSoapOut">
+    <wsdl:part name="parameters" element="tns:VehicleSoldSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVehicleSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteVehicle" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVehicleSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="PhotosToProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:PhotosToProcess" />
+  </wsdl:message>
+  <wsdl:message name="PhotosToProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:PhotosToProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="EbayCategoryGetSoapIn">
+    <wsdl:part name="parameters" element="tns:EbayCategoryGet" />
+  </wsdl:message>
+  <wsdl:message name="EbayCategoryGetSoapOut">
+    <wsdl:part name="parameters" element="tns:EbayCategoryGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="RandomTitleGetSoapIn">
+    <wsdl:part name="parameters" element="tns:RandomTitleGet" />
+  </wsdl:message>
+  <wsdl:message name="RandomTitleGetSoapOut">
+    <wsdl:part name="parameters" element="tns:RandomTitleGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="PhotoImportSoapIn">
+    <wsdl:part name="parameters" element="tns:PhotoImport" />
+  </wsdl:message>
+  <wsdl:message name="PhotoImportSoapOut">
+    <wsdl:part name="parameters" element="tns:PhotoImportResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListingPathsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListingPaths" />
+  </wsdl:message>
+  <wsdl:message name="GetListingPathsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListingPathsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerateTemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateTemplate" />
+  </wsdl:message>
+  <wsdl:message name="GenerateTemplateSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddPhotographsSoapIn">
+    <wsdl:part name="parameters" element="tns:AddPhotographs" />
+  </wsdl:message>
+  <wsdl:message name="AddPhotographsSoapOut">
+    <wsdl:part name="parameters" element="tns:AddPhotographsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListingLotLocationListGetSoapIn">
+    <wsdl:part name="parameters" element="tns:ListingLotLocationListGet" />
+  </wsdl:message>
+  <wsdl:message name="ListingLotLocationListGetSoapOut">
+    <wsdl:part name="parameters" element="tns:ListingLotLocationListGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListingVehicleNotesGetSoapIn">
+    <wsdl:part name="parameters" element="tns:ListingVehicleNotesGet" />
+  </wsdl:message>
+  <wsdl:message name="ListingVehicleNotesGetSoapOut">
+    <wsdl:part name="parameters" element="tns:ListingVehicleNotesGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListingVehicleNotesSetSoapIn">
+    <wsdl:part name="parameters" element="tns:ListingVehicleNotesSet" />
+  </wsdl:message>
+  <wsdl:message name="ListingVehicleNotesSetSoapOut">
+    <wsdl:part name="parameters" element="tns:ListingVehicleNotesSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListingGetPhotosSoapIn">
+    <wsdl:part name="parameters" element="tns:ListingGetPhotos" />
+  </wsdl:message>
+  <wsdl:message name="ListingGetPhotosSoapOut">
+    <wsdl:part name="parameters" element="tns:ListingGetPhotosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListingVehicleGetPhotosSoapIn">
+    <wsdl:part name="parameters" element="tns:ListingVehicleGetPhotos" />
+  </wsdl:message>
+  <wsdl:message name="ListingVehicleGetPhotosSoapOut">
+    <wsdl:part name="parameters" element="tns:ListingVehicleGetPhotosResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddPhotographsExplicitSoapIn">
+    <wsdl:part name="parameters" element="tns:AddPhotographsExplicit" />
+  </wsdl:message>
+  <wsdl:message name="AddPhotographsExplicitSoapOut">
+    <wsdl:part name="parameters" element="tns:AddPhotographsExplicitResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMakeModelSoapIn">
+    <wsdl:part name="parameters" element="tns:AddMakeModel" />
+  </wsdl:message>
+  <wsdl:message name="AddMakeModelSoapOut">
+    <wsdl:part name="parameters" element="tns:AddMakeModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="VehicleClassSetSoapIn">
+    <wsdl:part name="parameters" element="tns:VehicleClassSet" />
+  </wsdl:message>
+  <wsdl:message name="VehicleClassSetSoapOut">
+    <wsdl:part name="parameters" element="tns:VehicleClassSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="MarkVehicleUnavailableSoapIn">
+    <wsdl:part name="parameters" element="tns:MarkVehicleUnavailable" />
+  </wsdl:message>
+  <wsdl:message name="MarkVehicleUnavailableSoapOut">
+    <wsdl:part name="parameters" element="tns:MarkVehicleUnavailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReorderPhotosSoapIn">
+    <wsdl:part name="parameters" element="tns:ReorderPhotos" />
+  </wsdl:message>
+  <wsdl:message name="ReorderPhotosSoapOut">
+    <wsdl:part name="parameters" element="tns:ReorderPhotosResponse" />
+  </wsdl:message>
+  <wsdl:message name="AssignDamagePhotoSoapIn">
+    <wsdl:part name="parameters" element="tns:AssignDamagePhoto" />
+  </wsdl:message>
+  <wsdl:message name="AssignDamagePhotoSoapOut">
+    <wsdl:part name="parameters" element="tns:AssignDamagePhotoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ListingSoap">
+    <wsdl:operation name="UpdateGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Update Vehicle</wsdl:documentation>
+      <wsdl:input message="tns:UpdateGetSoapIn" />
+      <wsdl:output message="tns:UpdateGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set Update Vehicle</wsdl:documentation>
+      <wsdl:input message="tns:UpdateSetSoapIn" />
+      <wsdl:output message="tns:UpdateSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WPUpdateSet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set Update Vehicle</wsdl:documentation>
+      <wsdl:input message="tns:WPUpdateSetSoapIn" />
+      <wsdl:output message="tns:WPUpdateSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListingDetailGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Listing Details</wsdl:documentation>
+      <wsdl:input message="tns:ListingDetailGetSoapIn" />
+      <wsdl:output message="tns:ListingDetailGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListingDetailSet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set Listing Details</wsdl:documentation>
+      <wsdl:input message="tns:ListingDetailSetSoapIn" />
+      <wsdl:output message="tns:ListingDetailSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListingAuctionDataGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get All Vehicle Auction Data</wsdl:documentation>
+      <wsdl:input message="tns:ListingAuctionDataGetSoapIn" />
+      <wsdl:output message="tns:ListingAuctionDataGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListingSingleAuctionDataGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Specific Vehicle Auction Data</wsdl:documentation>
+      <wsdl:input message="tns:ListingSingleAuctionDataGetSoapIn" />
+      <wsdl:output message="tns:ListingSingleAuctionDataGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SellUnsellVehicle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Mark Vehicle as Sold|Available</wsdl:documentation>
+      <wsdl:input message="tns:SellUnsellVehicleSoapIn" />
+      <wsdl:output message="tns:SellUnsellVehicleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListingStatusCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check for the status of a given kListing. This is specific to AECorp.</wsdl:documentation>
+      <wsdl:input message="tns:ListingStatusCheckSoapIn" />
+      <wsdl:output message="tns:ListingStatusCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VehicleSoldSet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Mark Vehicle as Sold. This is specific to AECorp BuyNow Process.</wsdl:documentation>
+      <wsdl:input message="tns:VehicleSoldSetSoapIn" />
+      <wsdl:output message="tns:VehicleSoldSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Vehicle</wsdl:documentation>
+      <wsdl:input message="tns:DeleteVehicleSoapIn" />
+      <wsdl:output message="tns:DeleteVehicleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PhotosToProcess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Photos Pending Processing for a Vehicle</wsdl:documentation>
+      <wsdl:input message="tns:PhotosToProcessSoapIn" />
+      <wsdl:output message="tns:PhotosToProcessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EbayCategoryGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get eBay Categories for a Vehicle</wsdl:documentation>
+      <wsdl:input message="tns:EbayCategoryGetSoapIn" />
+      <wsdl:output message="tns:EbayCategoryGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RandomTitleGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Generate a Random Title for a Vehicle</wsdl:documentation>
+      <wsdl:input message="tns:RandomTitleGetSoapIn" />
+      <wsdl:output message="tns:RandomTitleGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PhotoImport">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Import a set of photos for a listing</wsdl:documentation>
+      <wsdl:input message="tns:PhotoImportSoapIn" />
+      <wsdl:output message="tns:PhotoImportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListingPaths">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the storage paths for a listing</wsdl:documentation>
+      <wsdl:input message="tns:GetListingPathsSoapIn" />
+      <wsdl:output message="tns:GetListingPathsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTemplate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Generate XML templates for a listing</wsdl:documentation>
+      <wsdl:input message="tns:GenerateTemplateSoapIn" />
+      <wsdl:output message="tns:GenerateTemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPhotographs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Photographs to a listing</wsdl:documentation>
+      <wsdl:input message="tns:AddPhotographsSoapIn" />
+      <wsdl:output message="tns:AddPhotographsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListingLotLocationListGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Listing Lot Location List for Dealer</wsdl:documentation>
+      <wsdl:input message="tns:ListingLotLocationListGetSoapIn" />
+      <wsdl:output message="tns:ListingLotLocationListGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListingVehicleNotesGet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Vehicle Notes for a given Listing</wsdl:documentation>
+      <wsdl:input message="tns:ListingVehicleNotesGetSoapIn" />
+      <wsdl:output message="tns:ListingVehicleNotesGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListingVehicleNotesSet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set Vehicle Notes for a given Listing</wsdl:documentation>
+      <wsdl:input message="tns:ListingVehicleNotesSetSoapIn" />
+      <wsdl:output message="tns:ListingVehicleNotesSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListingGetPhotos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a list of photos for a given listing</wsdl:documentation>
+      <wsdl:input message="tns:ListingGetPhotosSoapIn" />
+      <wsdl:output message="tns:ListingGetPhotosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListingVehicleGetPhotos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get list of photos for a given listing</wsdl:documentation>
+      <wsdl:input message="tns:ListingVehicleGetPhotosSoapIn" />
+      <wsdl:output message="tns:ListingVehicleGetPhotosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPhotographsExplicit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Explicit Add photos for a given listing</wsdl:documentation>
+      <wsdl:input message="tns:AddPhotographsExplicitSoapIn" />
+      <wsdl:output message="tns:AddPhotographsExplicitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMakeModel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add either a new MAKE and/or MODEL to the system</wsdl:documentation>
+      <wsdl:input message="tns:AddMakeModelSoapIn" />
+      <wsdl:output message="tns:AddMakeModelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VehicleClassSet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Explicitly set the class type of a vehicle</wsdl:documentation>
+      <wsdl:input message="tns:VehicleClassSetSoapIn" />
+      <wsdl:output message="tns:VehicleClassSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MarkVehicleUnavailable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Change the status of a vehicle to UNAVAILABLE</wsdl:documentation>
+      <wsdl:input message="tns:MarkVehicleUnavailableSoapIn" />
+      <wsdl:output message="tns:MarkVehicleUnavailableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReorderPhotos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Re-order and handle delete of photographs</wsdl:documentation>
+      <wsdl:input message="tns:ReorderPhotosSoapIn" />
+      <wsdl:output message="tns:ReorderPhotosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignDamagePhoto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add or delete damage photo association</wsdl:documentation>
+      <wsdl:input message="tns:AssignDamagePhotoSoapIn" />
+      <wsdl:output message="tns:AssignDamagePhotoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ListingSoap" type="tns:ListingSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/UpdateGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/UpdateSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WPUpdateSet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/WPUpdateSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingDetailGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ListingDetailGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingDetailSet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ListingDetailSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingAuctionDataGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ListingAuctionDataGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingSingleAuctionDataGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ListingSingleAuctionDataGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SellUnsellVehicle">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/SellUnsellVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingStatusCheck">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ListingStatusCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VehicleSoldSet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/VehicleSoldSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicle">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/DeleteVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhotosToProcess">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/PhotosToProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EbayCategoryGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/EbayCategoryGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RandomTitleGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/RandomTitleGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhotoImport">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/PhotoImport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListingPaths">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GetListingPaths" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTemplate">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/GenerateTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPhotographs">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/AddPhotographs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingLotLocationListGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ListingLotLocationListGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingVehicleNotesGet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ListingVehicleNotesGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingVehicleNotesSet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ListingVehicleNotesSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingGetPhotos">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ListingGetPhotos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingVehicleGetPhotos">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ListingVehicleGetPhotos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPhotographsExplicit">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/AddPhotographsExplicit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMakeModel">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/AddMakeModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VehicleClassSet">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/VehicleClassSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkVehicleUnavailable">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/MarkVehicleUnavailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReorderPhotos">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/ReorderPhotos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignDamagePhoto">
+      <soap:operation soapAction="http://liquidmotors.com/webservices/AssignDamagePhoto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ListingSoap12" type="tns:ListingSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/UpdateGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/UpdateSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WPUpdateSet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/WPUpdateSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingDetailGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ListingDetailGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingDetailSet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ListingDetailSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingAuctionDataGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ListingAuctionDataGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingSingleAuctionDataGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ListingSingleAuctionDataGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SellUnsellVehicle">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/SellUnsellVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingStatusCheck">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ListingStatusCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VehicleSoldSet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/VehicleSoldSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicle">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/DeleteVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhotosToProcess">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/PhotosToProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EbayCategoryGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/EbayCategoryGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RandomTitleGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/RandomTitleGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhotoImport">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/PhotoImport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListingPaths">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GetListingPaths" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTemplate">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/GenerateTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPhotographs">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/AddPhotographs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingLotLocationListGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ListingLotLocationListGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingVehicleNotesGet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ListingVehicleNotesGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingVehicleNotesSet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ListingVehicleNotesSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingGetPhotos">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ListingGetPhotos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListingVehicleGetPhotos">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ListingVehicleGetPhotos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPhotographsExplicit">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/AddPhotographsExplicit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMakeModel">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/AddMakeModel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VehicleClassSet">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/VehicleClassSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkVehicleUnavailable">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/MarkVehicleUnavailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReorderPhotos">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/ReorderPhotos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignDamagePhoto">
+      <soap12:operation soapAction="http://liquidmotors.com/webservices/AssignDamagePhoto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Listing">
+    <wsdl:port name="ListingSoap" binding="tns:ListingSoap">
+      <soap:address location="http://wpsandservices.liquidmotors.com/api/listing.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ListingSoap12" binding="tns:ListingSoap12">
+      <soap12:address location="http://wpsandservices.liquidmotors.com/api/listing.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

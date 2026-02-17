@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://liquidmotors.com/webservices/" elementFormDefault="qualified" targetNamespace="http://liquidmotors.com/webservices/" id="schema1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="GetInventoryOverrides">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="kListing" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInventoryOverridesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetInventoryOverridesResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="lmReturnValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Values" type="tns:SerializableDictionary" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Result" type="tns:ReturnCode" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ResultString" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Data">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="xs:schema" />
+            <xs:any />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SerializableDictionary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfKeyValuePair" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfKeyValuePair">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValuePair" nillable="true" type="tns:KeyValuePair" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="KeyValuePair">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Key" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ReturnCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LM_SUCCESS" />
+      <xs:enumeration value="LM_INVALIDSESSION" />
+      <xs:enumeration value="LM_RELAYCOMMERROR" />
+      <xs:enumeration value="LM_DBERROR" />
+      <xs:enumeration value="LM_MISSINGASSOCIATIONS" />
+      <xs:enumeration value="LM_GENERICERROR" />
+      <xs:enumeration value="LM_SECURITYERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SetInventoryOverrides">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Session" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="dataIn" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetInventoryOverridesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SetInventoryOverridesResult" type="tns:lmReturnValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

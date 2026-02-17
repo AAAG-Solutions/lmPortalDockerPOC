@@ -1,0 +1,92 @@
+﻿.StatusPage {
+    padding-left: 45px;
+    padding-right: 10px;
+    padding-top: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: calc(100vh - 75px);
+}
+
+.TableCellHeader {
+    padding: 2px;
+    font-weight: bold;
+    display: table-cell;
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid #000;
+    background-color: #0077c0;
+    color: white;
+}
+
+.TableCell {
+    padding: 2px;
+    font-weight: bold;
+    display: table-cell;
+    text-align: left;
+    border-collapse: collapse;
+    border: 1px solid #000;
+}
+
+.RedCell {
+    background-color: #BE2B2B;
+}
+
+.YellowCell {
+    background-color: #FFF380;
+}
+
+.GreenCell {
+    background-color: #27A627;
+}
+
+.ReportTable {
+    display: table;
+    border-spacing: 10px;
+    margin: 0 auto;
+}
+
+.widgetsTable {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 10px;
+}
+
+.ReportsSection {
+    padding: 11px;
+}
+
+.HealthSection {
+    padding: 20px 10px;
+}
+
+@media(Max-Width:768px) {
+    .StatusPage {
+        overflow-y: scroll;
+        height: calc(100vh - 95px) !important;
+    }
+
+    .TableCellHeaderLeft {
+        width: 200px;
+    }
+
+    .TableCellHeaderRight {
+        width: 100px;
+    }
+
+    .ReportTable {
+        border-spacing: 0px;
+    }
+
+    .widgetsTable {
+        border-spacing: 0px !important;
+    }
+
+    .ForceWidth {
+        max-width: 315px;
+    }
+
+    .ReportsSection, .HealthSection {
+        padding: 5px !important;
+    }
+}

@@ -1,0 +1,37 @@
+﻿.ManageOverrides {
+    padding-left: 45px;
+    padding-right: 5px;
+    padding-top: 10px;
+    height: calc(100vh - 75px);
+    margin: auto;
+}
+
+.ActionButton {
+    margin-right: 10px;
+    width: 125px;
+}
+
+.LabelItem {
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.SingleIndent {
+    margin-left: 10px;
+}
+
+@media(max-width:768px) {
+    .ManageOverrides {
+        overflow-y: scroll;
+        height: calc(100vh - 95px) !important;
+        padding-top: 0px !important;
+    }
+
+    .col {
+        padding: 0;
+    }
+
+    .ActionButton {
+        width: 80px;
+    }
+}

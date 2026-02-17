@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://liquidmotors.com/webservices/" xmlns:i0="http://services.liquidmotors.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://liquidmotors.com/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://services.liquidmotors.com" location="http://wpsandservices.liquidmotors.com/api/lookup.asmx?wsdl=wsdl1" />
+  <wsdl:types>
+    <s:schema targetNamespace="http://liquidmotors.com/webservices/">
+      <s:include schemaLocation="http://wpsandservices.liquidmotors.com/api/lookup.asmx?schema=schema1" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:service name="Lookup">
+    <wsdl:port name="LookupSoap" binding="i0:LookupSoap">
+      <soap:address location="http://wpsandservices.liquidmotors.com/api/lookup.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LookupSoap12" binding="i0:LookupSoap12">
+      <soap12:address location="http://wpsandservices.liquidmotors.com/api/lookup.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

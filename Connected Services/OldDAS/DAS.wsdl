@@ -1,0 +1,2478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="https://protal.liquidmotors.com" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="https://protal.liquidmotors.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://protal.liquidmotors.com">
+      <s:element name="GetAnalytics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DealerGroup" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DealerID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StockType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IconStatus" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PrintStatus" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnalyticsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAnalyticsResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="lmReturnValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="tns:ReturnCodes" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DS">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="PerformanceDS">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="1" maxOccurs="1" name="DSIsValid" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ReturnCodes">
+        <s:restriction base="s:string">
+          <s:enumeration value="LM_GENERICERROR" />
+          <s:enumeration value="LM_MISSINGASSOCIATIONS" />
+          <s:enumeration value="LM_DBERROR" />
+          <s:enumeration value="LM_RELAYCOMMERROR" />
+          <s:enumeration value="LM_INVALIDSESSION" />
+          <s:enumeration value="LM_SUCCESS" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetAnalyticsReRun">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnalyticsReRunResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAnalyticsReRunResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnalyticsDetailed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Distance" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Certified" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StyleSearch" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Auction" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FilterType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnalyticsDetailedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAnalyticsDetailedResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnalyticsELink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnalyticsELinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAnalyticsELinkResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnalyticsFeatures">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Year" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Series" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Style" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnalyticsFeaturesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAnalyticsFeaturesResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAnalyticsDefine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Mode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Item" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Feature" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAnalyticsDefineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetAnalyticsDefineResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnalyticsOptions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnalyticsOptionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAnalyticsOptionsResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAnalyticsUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StockNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Miles" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cost" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListPrice" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ImportOverride" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="InternetPrice" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAnalyticsUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetAnalyticsUpdateResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAnalyticsDASInventory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Dealer" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="StockNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VIN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MotorYear" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Miles" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="InvCost" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ListPrice" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MakeStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModelStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StyleStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StyleID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DrillDown" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StockType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ImportOverride" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="InternetPrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kVehicleClass" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAnalyticsDASInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetAnalyticsDASInventoryResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAnalyticsCommit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StockNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAnalyticsCommitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetAnalyticsCommitResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAnalyticsDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAnalyticsDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetAnalyticsDeleteResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnalyticsInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="VIN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnalyticsInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAnalyticsInfoResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBBValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="VIN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBBValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBBValuesResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUpdateInventory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StockNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VIN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Miles" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InvCost" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListPrice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Year" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Style" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StyleID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DrillDown" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StockType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ImportOverride" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUpdateInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetUpdateInventoryResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDASChromeYear">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MotorYear" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDASChromeYearResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDASChromeYearResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDASChromeStyles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Vin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MotorYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MakeStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModelStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDASChromeStylesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDASChromeStylesResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getChromeMenuCache">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getChromeMenuCacheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getChromeMenuCacheResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getChromeStyleIDByVIN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Vin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getChromeStyleIDByVINResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getChromeStyleIDByVINResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBlackbookMenuCache">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBlackbookMenuCacheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getBlackbookMenuCacheResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDASChromeModels">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MotorYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDASChromeModelsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDASChromeModelsResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DAS_Get_Motor_Years">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DAS_Get_Motor_YearsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DAS_Get_Motor_YearsResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DAS_Get_Motor_Makes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MotorYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DAS_Get_Motor_MakesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DAS_Get_Motor_MakesResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DAS_Get_Motor_Models">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MotorYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentModel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DAS_Get_Motor_ModelsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DAS_Get_Motor_ModelsResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DAS_Get_Motor_Styles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MotorYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DAS_Get_Motor_StylesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DAS_Get_Motor_StylesResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DealerImport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Dealer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VehicleInvAcc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DealerFilePath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FilePath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Delimiter" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kDealerImport" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ImportType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DealerImportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DealerImportResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="importStatusGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Dealer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="importStatusGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="importStatusGetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setDetailsDone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setDetailsDoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="setDetailsDoneResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEbay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FilterType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEbayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEbayResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWebAd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FilterType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Auction" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWebAdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getWebAdResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEbayDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FilterType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iCertified" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iStyleSearch" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEbayDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEbayDetailsResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWebAdDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Distance" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Certified" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StyleSearch" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Auction" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FilterType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWebAdDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getWebAdDetailsResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBlackbookAdjustments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBlackbookAdjustmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getBlackbookAdjustmentsResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFilters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Dealer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFiltersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getFiltersResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateWindowSticker">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kTemplate" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="UsebackgroundImage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="PrintQRCode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PrintBarCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateWindowStickerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerateWindowStickerResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateBuyersGuide">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kTemplate" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iWarrantyType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iLaborCoverage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iPartsCoverage" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SystemsCovered" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WarrantyDuration" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServiceContract" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Complaints" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UseBackgroundImage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Print2ndPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PrintQRCode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PrintBarCodeint" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ManWarrantyApplies" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ManUsedWarrantyApplies" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OtherUsedWarrantyApplies" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PriorRental" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="HasWarranty" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateBuyersGuideResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerateBuyersGuideResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchBuyersGuideWindowStickers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kDealer" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FetchBuyersGuideWindowStickersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchBuyersGuideWindowStickersResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVinExplosion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VIN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StyleID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVinExplosionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVinExplosionResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNewVIN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VIN" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DrillDown" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNewVINResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetNewVINResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNewStyleID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VIN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Year" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Style" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StyleID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DrillDown" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNewStyleIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetNewStyleIDResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="dealerAnalytics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Dealer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="dealerAnalyticsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dealerAnalyticsResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="dealerPricing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Dealer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="dealerPricingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dealerPricingResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWebAdDetailsPhoto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Listing" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="WebAd" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWebAdDetailsPhotoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWebAdDetailsPhotoResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="resolveBlackbook">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Blackbook" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MotorYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Series" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Style" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="resolveBlackbookResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="resolveBlackbookResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="resolveBluebook">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VehicleId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="resolveBluebookResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="resolveBluebookResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBluebookOptions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBluebookOptionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getBluebookOptionsResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BookOptionsSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Condition" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="AdjCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="KBBCondition" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="KBBOptionIds" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iBBBook" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iKBBBook" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BookOptionsSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BookOptionsSetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bluebookBaseGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Operation" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bluebookBaseGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bluebookBaseGetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="blackbookBaseGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Listing" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="blackbookBaseGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="blackbookBaseGetResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BulkPrintWS_BG">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Dealer" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="BulkPrint">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="WindowStickerTemplate" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="BuyersGuideTemplate" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PriceType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ServiceContract" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ManWarrantyApplies" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ManUsedWarrantyApplies" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OtherUsedWarrantyApplies" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PriorRental" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BulkPrintWS_BGResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BulkPrintWS_BGResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetVehicleReserved">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsReservedVehicle">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetVehicleReservedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetVehicleReservedResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetVehicleSold">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kDealer" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kPerson" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kGroundingDealer" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kListing" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SalePrice" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetVehicleSoldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetVehicleSoldResult" type="tns:lmReturnValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLastError">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLastErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLastErrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAnalyticsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAnalytics" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalyticsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAnalyticsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalyticsReRunSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAnalyticsReRun" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalyticsReRunSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAnalyticsReRunResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalyticsDetailedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAnalyticsDetailed" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalyticsDetailedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAnalyticsDetailedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalyticsELinkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAnalyticsELink" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalyticsELinkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAnalyticsELinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalyticsFeaturesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAnalyticsFeatures" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalyticsFeaturesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAnalyticsFeaturesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetAnalyticsDefineSoapIn">
+    <wsdl:part name="parameters" element="tns:SetAnalyticsDefine" />
+  </wsdl:message>
+  <wsdl:message name="SetAnalyticsDefineSoapOut">
+    <wsdl:part name="parameters" element="tns:SetAnalyticsDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalyticsOptionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAnalyticsOptions" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalyticsOptionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAnalyticsOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetAnalyticsUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:SetAnalyticsUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SetAnalyticsUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:SetAnalyticsUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetAnalyticsDASInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:SetAnalyticsDASInventory" />
+  </wsdl:message>
+  <wsdl:message name="SetAnalyticsDASInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:SetAnalyticsDASInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetAnalyticsCommitSoapIn">
+    <wsdl:part name="parameters" element="tns:SetAnalyticsCommit" />
+  </wsdl:message>
+  <wsdl:message name="SetAnalyticsCommitSoapOut">
+    <wsdl:part name="parameters" element="tns:SetAnalyticsCommitResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetAnalyticsDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:SetAnalyticsDelete" />
+  </wsdl:message>
+  <wsdl:message name="SetAnalyticsDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:SetAnalyticsDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalyticsInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAnalyticsInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetAnalyticsInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAnalyticsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBBValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBBValues" />
+  </wsdl:message>
+  <wsdl:message name="GetBBValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBBValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetUpdateInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:SetUpdateInventory" />
+  </wsdl:message>
+  <wsdl:message name="SetUpdateInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:SetUpdateInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDASChromeYearSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDASChromeYear" />
+  </wsdl:message>
+  <wsdl:message name="GetDASChromeYearSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDASChromeYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDASChromeStylesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDASChromeStyles" />
+  </wsdl:message>
+  <wsdl:message name="GetDASChromeStylesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDASChromeStylesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getChromeMenuCacheSoapIn">
+    <wsdl:part name="parameters" element="tns:getChromeMenuCache" />
+  </wsdl:message>
+  <wsdl:message name="getChromeMenuCacheSoapOut">
+    <wsdl:part name="parameters" element="tns:getChromeMenuCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="getChromeStyleIDByVINSoapIn">
+    <wsdl:part name="parameters" element="tns:getChromeStyleIDByVIN" />
+  </wsdl:message>
+  <wsdl:message name="getChromeStyleIDByVINSoapOut">
+    <wsdl:part name="parameters" element="tns:getChromeStyleIDByVINResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBlackbookMenuCacheSoapIn">
+    <wsdl:part name="parameters" element="tns:getBlackbookMenuCache" />
+  </wsdl:message>
+  <wsdl:message name="getBlackbookMenuCacheSoapOut">
+    <wsdl:part name="parameters" element="tns:getBlackbookMenuCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDASChromeModelsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDASChromeModels" />
+  </wsdl:message>
+  <wsdl:message name="GetDASChromeModelsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDASChromeModelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DAS_Get_Motor_YearsSoapIn">
+    <wsdl:part name="parameters" element="tns:DAS_Get_Motor_Years" />
+  </wsdl:message>
+  <wsdl:message name="DAS_Get_Motor_YearsSoapOut">
+    <wsdl:part name="parameters" element="tns:DAS_Get_Motor_YearsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DAS_Get_Motor_MakesSoapIn">
+    <wsdl:part name="parameters" element="tns:DAS_Get_Motor_Makes" />
+  </wsdl:message>
+  <wsdl:message name="DAS_Get_Motor_MakesSoapOut">
+    <wsdl:part name="parameters" element="tns:DAS_Get_Motor_MakesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DAS_Get_Motor_ModelsSoapIn">
+    <wsdl:part name="parameters" element="tns:DAS_Get_Motor_Models" />
+  </wsdl:message>
+  <wsdl:message name="DAS_Get_Motor_ModelsSoapOut">
+    <wsdl:part name="parameters" element="tns:DAS_Get_Motor_ModelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DAS_Get_Motor_StylesSoapIn">
+    <wsdl:part name="parameters" element="tns:DAS_Get_Motor_Styles" />
+  </wsdl:message>
+  <wsdl:message name="DAS_Get_Motor_StylesSoapOut">
+    <wsdl:part name="parameters" element="tns:DAS_Get_Motor_StylesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DealerImportSoapIn">
+    <wsdl:part name="parameters" element="tns:DealerImport" />
+  </wsdl:message>
+  <wsdl:message name="DealerImportSoapOut">
+    <wsdl:part name="parameters" element="tns:DealerImportResponse" />
+  </wsdl:message>
+  <wsdl:message name="importStatusGetSoapIn">
+    <wsdl:part name="parameters" element="tns:importStatusGet" />
+  </wsdl:message>
+  <wsdl:message name="importStatusGetSoapOut">
+    <wsdl:part name="parameters" element="tns:importStatusGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="setDetailsDoneSoapIn">
+    <wsdl:part name="parameters" element="tns:setDetailsDone" />
+  </wsdl:message>
+  <wsdl:message name="setDetailsDoneSoapOut">
+    <wsdl:part name="parameters" element="tns:setDetailsDoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEbaySoapIn">
+    <wsdl:part name="parameters" element="tns:GetEbay" />
+  </wsdl:message>
+  <wsdl:message name="GetEbaySoapOut">
+    <wsdl:part name="parameters" element="tns:GetEbayResponse" />
+  </wsdl:message>
+  <wsdl:message name="getWebAdSoapIn">
+    <wsdl:part name="parameters" element="tns:getWebAd" />
+  </wsdl:message>
+  <wsdl:message name="getWebAdSoapOut">
+    <wsdl:part name="parameters" element="tns:getWebAdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getEbayDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:getEbayDetails" />
+  </wsdl:message>
+  <wsdl:message name="getEbayDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:getEbayDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getWebAdDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:getWebAdDetails" />
+  </wsdl:message>
+  <wsdl:message name="getWebAdDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:getWebAdDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBlackbookAdjustmentsSoapIn">
+    <wsdl:part name="parameters" element="tns:getBlackbookAdjustments" />
+  </wsdl:message>
+  <wsdl:message name="getBlackbookAdjustmentsSoapOut">
+    <wsdl:part name="parameters" element="tns:getBlackbookAdjustmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getFiltersSoapIn">
+    <wsdl:part name="parameters" element="tns:getFilters" />
+  </wsdl:message>
+  <wsdl:message name="getFiltersSoapOut">
+    <wsdl:part name="parameters" element="tns:getFiltersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerateWindowStickerSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateWindowSticker" />
+  </wsdl:message>
+  <wsdl:message name="GenerateWindowStickerSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateWindowStickerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerateBuyersGuideSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateBuyersGuide" />
+  </wsdl:message>
+  <wsdl:message name="GenerateBuyersGuideSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateBuyersGuideResponse" />
+  </wsdl:message>
+  <wsdl:message name="FetchBuyersGuideWindowStickersSoapIn">
+    <wsdl:part name="parameters" element="tns:FetchBuyersGuideWindowStickers" />
+  </wsdl:message>
+  <wsdl:message name="FetchBuyersGuideWindowStickersSoapOut">
+    <wsdl:part name="parameters" element="tns:FetchBuyersGuideWindowStickersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVinExplosionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVinExplosion" />
+  </wsdl:message>
+  <wsdl:message name="GetVinExplosionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVinExplosionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetNewVINSoapIn">
+    <wsdl:part name="parameters" element="tns:SetNewVIN" />
+  </wsdl:message>
+  <wsdl:message name="SetNewVINSoapOut">
+    <wsdl:part name="parameters" element="tns:SetNewVINResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetNewStyleIDSoapIn">
+    <wsdl:part name="parameters" element="tns:SetNewStyleID" />
+  </wsdl:message>
+  <wsdl:message name="SetNewStyleIDSoapOut">
+    <wsdl:part name="parameters" element="tns:SetNewStyleIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="dealerAnalyticsSoapIn">
+    <wsdl:part name="parameters" element="tns:dealerAnalytics" />
+  </wsdl:message>
+  <wsdl:message name="dealerAnalyticsSoapOut">
+    <wsdl:part name="parameters" element="tns:dealerAnalyticsResponse" />
+  </wsdl:message>
+  <wsdl:message name="dealerPricingSoapIn">
+    <wsdl:part name="parameters" element="tns:dealerPricing" />
+  </wsdl:message>
+  <wsdl:message name="dealerPricingSoapOut">
+    <wsdl:part name="parameters" element="tns:dealerPricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWebAdDetailsPhotoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWebAdDetailsPhoto" />
+  </wsdl:message>
+  <wsdl:message name="GetWebAdDetailsPhotoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWebAdDetailsPhotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="resolveBlackbookSoapIn">
+    <wsdl:part name="parameters" element="tns:resolveBlackbook" />
+  </wsdl:message>
+  <wsdl:message name="resolveBlackbookSoapOut">
+    <wsdl:part name="parameters" element="tns:resolveBlackbookResponse" />
+  </wsdl:message>
+  <wsdl:message name="resolveBluebookSoapIn">
+    <wsdl:part name="parameters" element="tns:resolveBluebook" />
+  </wsdl:message>
+  <wsdl:message name="resolveBluebookSoapOut">
+    <wsdl:part name="parameters" element="tns:resolveBluebookResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBluebookOptionsSoapIn">
+    <wsdl:part name="parameters" element="tns:getBluebookOptions" />
+  </wsdl:message>
+  <wsdl:message name="getBluebookOptionsSoapOut">
+    <wsdl:part name="parameters" element="tns:getBluebookOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="BookOptionsSetSoapIn">
+    <wsdl:part name="parameters" element="tns:BookOptionsSet" />
+  </wsdl:message>
+  <wsdl:message name="BookOptionsSetSoapOut">
+    <wsdl:part name="parameters" element="tns:BookOptionsSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="bluebookBaseGetSoapIn">
+    <wsdl:part name="parameters" element="tns:bluebookBaseGet" />
+  </wsdl:message>
+  <wsdl:message name="bluebookBaseGetSoapOut">
+    <wsdl:part name="parameters" element="tns:bluebookBaseGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="blackbookBaseGetSoapIn">
+    <wsdl:part name="parameters" element="tns:blackbookBaseGet" />
+  </wsdl:message>
+  <wsdl:message name="blackbookBaseGetSoapOut">
+    <wsdl:part name="parameters" element="tns:blackbookBaseGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="BulkPrintWS_BGSoapIn">
+    <wsdl:part name="parameters" element="tns:BulkPrintWS_BG" />
+  </wsdl:message>
+  <wsdl:message name="BulkPrintWS_BGSoapOut">
+    <wsdl:part name="parameters" element="tns:BulkPrintWS_BGResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetVehicleReservedSoapIn">
+    <wsdl:part name="parameters" element="tns:SetVehicleReserved" />
+  </wsdl:message>
+  <wsdl:message name="SetVehicleReservedSoapOut">
+    <wsdl:part name="parameters" element="tns:SetVehicleReservedResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetVehicleSoldSoapIn">
+    <wsdl:part name="parameters" element="tns:SetVehicleSold" />
+  </wsdl:message>
+  <wsdl:message name="SetVehicleSoldSoapOut">
+    <wsdl:part name="parameters" element="tns:SetVehicleSoldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLastErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLastError" />
+  </wsdl:message>
+  <wsdl:message name="GetLastErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLastErrorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DASSoap">
+    <wsdl:operation name="GetAnalytics">
+      <wsdl:input message="tns:GetAnalyticsSoapIn" />
+      <wsdl:output message="tns:GetAnalyticsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsReRun">
+      <wsdl:input message="tns:GetAnalyticsReRunSoapIn" />
+      <wsdl:output message="tns:GetAnalyticsReRunSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsDetailed">
+      <wsdl:input message="tns:GetAnalyticsDetailedSoapIn" />
+      <wsdl:output message="tns:GetAnalyticsDetailedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsELink">
+      <wsdl:input message="tns:GetAnalyticsELinkSoapIn" />
+      <wsdl:output message="tns:GetAnalyticsELinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsFeatures">
+      <wsdl:input message="tns:GetAnalyticsFeaturesSoapIn" />
+      <wsdl:output message="tns:GetAnalyticsFeaturesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAnalyticsDefine">
+      <wsdl:input message="tns:SetAnalyticsDefineSoapIn" />
+      <wsdl:output message="tns:SetAnalyticsDefineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsOptions">
+      <wsdl:input message="tns:GetAnalyticsOptionsSoapIn" />
+      <wsdl:output message="tns:GetAnalyticsOptionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAnalyticsUpdate">
+      <wsdl:input message="tns:SetAnalyticsUpdateSoapIn" />
+      <wsdl:output message="tns:SetAnalyticsUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAnalyticsDASInventory">
+      <wsdl:input message="tns:SetAnalyticsDASInventorySoapIn" />
+      <wsdl:output message="tns:SetAnalyticsDASInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAnalyticsCommit">
+      <wsdl:input message="tns:SetAnalyticsCommitSoapIn" />
+      <wsdl:output message="tns:SetAnalyticsCommitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAnalyticsDelete">
+      <wsdl:input message="tns:SetAnalyticsDeleteSoapIn" />
+      <wsdl:output message="tns:SetAnalyticsDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsInfo">
+      <wsdl:input message="tns:GetAnalyticsInfoSoapIn" />
+      <wsdl:output message="tns:GetAnalyticsInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBBValues">
+      <wsdl:input message="tns:GetBBValuesSoapIn" />
+      <wsdl:output message="tns:GetBBValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUpdateInventory">
+      <wsdl:input message="tns:SetUpdateInventorySoapIn" />
+      <wsdl:output message="tns:SetUpdateInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDASChromeYear">
+      <wsdl:input message="tns:GetDASChromeYearSoapIn" />
+      <wsdl:output message="tns:GetDASChromeYearSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDASChromeStyles">
+      <wsdl:input message="tns:GetDASChromeStylesSoapIn" />
+      <wsdl:output message="tns:GetDASChromeStylesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getChromeMenuCache">
+      <wsdl:input message="tns:getChromeMenuCacheSoapIn" />
+      <wsdl:output message="tns:getChromeMenuCacheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getChromeStyleIDByVIN">
+      <wsdl:input message="tns:getChromeStyleIDByVINSoapIn" />
+      <wsdl:output message="tns:getChromeStyleIDByVINSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBlackbookMenuCache">
+      <wsdl:input message="tns:getBlackbookMenuCacheSoapIn" />
+      <wsdl:output message="tns:getBlackbookMenuCacheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDASChromeModels">
+      <wsdl:input message="tns:GetDASChromeModelsSoapIn" />
+      <wsdl:output message="tns:GetDASChromeModelsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DAS_Get_Motor_Years">
+      <wsdl:input message="tns:DAS_Get_Motor_YearsSoapIn" />
+      <wsdl:output message="tns:DAS_Get_Motor_YearsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DAS_Get_Motor_Makes">
+      <wsdl:input message="tns:DAS_Get_Motor_MakesSoapIn" />
+      <wsdl:output message="tns:DAS_Get_Motor_MakesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DAS_Get_Motor_Models">
+      <wsdl:input message="tns:DAS_Get_Motor_ModelsSoapIn" />
+      <wsdl:output message="tns:DAS_Get_Motor_ModelsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DAS_Get_Motor_Styles">
+      <wsdl:input message="tns:DAS_Get_Motor_StylesSoapIn" />
+      <wsdl:output message="tns:DAS_Get_Motor_StylesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DealerImport">
+      <wsdl:input message="tns:DealerImportSoapIn" />
+      <wsdl:output message="tns:DealerImportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="importStatusGet">
+      <wsdl:input message="tns:importStatusGetSoapIn" />
+      <wsdl:output message="tns:importStatusGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setDetailsDone">
+      <wsdl:input message="tns:setDetailsDoneSoapIn" />
+      <wsdl:output message="tns:setDetailsDoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEbay">
+      <wsdl:input message="tns:GetEbaySoapIn" />
+      <wsdl:output message="tns:GetEbaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getWebAd">
+      <wsdl:input message="tns:getWebAdSoapIn" />
+      <wsdl:output message="tns:getWebAdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEbayDetails">
+      <wsdl:input message="tns:getEbayDetailsSoapIn" />
+      <wsdl:output message="tns:getEbayDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getWebAdDetails">
+      <wsdl:input message="tns:getWebAdDetailsSoapIn" />
+      <wsdl:output message="tns:getWebAdDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBlackbookAdjustments">
+      <wsdl:input message="tns:getBlackbookAdjustmentsSoapIn" />
+      <wsdl:output message="tns:getBlackbookAdjustmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getFilters">
+      <wsdl:input message="tns:getFiltersSoapIn" />
+      <wsdl:output message="tns:getFiltersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWindowSticker">
+      <wsdl:input message="tns:GenerateWindowStickerSoapIn" />
+      <wsdl:output message="tns:GenerateWindowStickerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateBuyersGuide">
+      <wsdl:input message="tns:GenerateBuyersGuideSoapIn" />
+      <wsdl:output message="tns:GenerateBuyersGuideSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchBuyersGuideWindowStickers">
+      <wsdl:input message="tns:FetchBuyersGuideWindowStickersSoapIn" />
+      <wsdl:output message="tns:FetchBuyersGuideWindowStickersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVinExplosion">
+      <wsdl:input message="tns:GetVinExplosionSoapIn" />
+      <wsdl:output message="tns:GetVinExplosionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNewVIN">
+      <wsdl:input message="tns:SetNewVINSoapIn" />
+      <wsdl:output message="tns:SetNewVINSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNewStyleID">
+      <wsdl:input message="tns:SetNewStyleIDSoapIn" />
+      <wsdl:output message="tns:SetNewStyleIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="dealerAnalytics">
+      <wsdl:input message="tns:dealerAnalyticsSoapIn" />
+      <wsdl:output message="tns:dealerAnalyticsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="dealerPricing">
+      <wsdl:input message="tns:dealerPricingSoapIn" />
+      <wsdl:output message="tns:dealerPricingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWebAdDetailsPhoto">
+      <wsdl:input message="tns:GetWebAdDetailsPhotoSoapIn" />
+      <wsdl:output message="tns:GetWebAdDetailsPhotoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="resolveBlackbook">
+      <wsdl:input message="tns:resolveBlackbookSoapIn" />
+      <wsdl:output message="tns:resolveBlackbookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="resolveBluebook">
+      <wsdl:input message="tns:resolveBluebookSoapIn" />
+      <wsdl:output message="tns:resolveBluebookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBluebookOptions">
+      <wsdl:input message="tns:getBluebookOptionsSoapIn" />
+      <wsdl:output message="tns:getBluebookOptionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BookOptionsSet">
+      <wsdl:input message="tns:BookOptionsSetSoapIn" />
+      <wsdl:output message="tns:BookOptionsSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="bluebookBaseGet">
+      <wsdl:input message="tns:bluebookBaseGetSoapIn" />
+      <wsdl:output message="tns:bluebookBaseGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="blackbookBaseGet">
+      <wsdl:input message="tns:blackbookBaseGetSoapIn" />
+      <wsdl:output message="tns:blackbookBaseGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BulkPrintWS_BG">
+      <wsdl:input message="tns:BulkPrintWS_BGSoapIn" />
+      <wsdl:output message="tns:BulkPrintWS_BGSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVehicleReserved">
+      <wsdl:input message="tns:SetVehicleReservedSoapIn" />
+      <wsdl:output message="tns:SetVehicleReservedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVehicleSold">
+      <wsdl:input message="tns:SetVehicleSoldSoapIn" />
+      <wsdl:output message="tns:SetVehicleSoldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastError">
+      <wsdl:input message="tns:GetLastErrorSoapIn" />
+      <wsdl:output message="tns:GetLastErrorSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DASSoap" type="tns:DASSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAnalytics">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GetAnalytics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsReRun">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GetAnalyticsReRun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsDetailed">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GetAnalyticsDetailed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsELink">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GetAnalyticsELink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsFeatures">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GetAnalyticsFeatures" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAnalyticsDefine">
+      <soap:operation soapAction="https://protal.liquidmotors.com/SetAnalyticsDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsOptions">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GetAnalyticsOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAnalyticsUpdate">
+      <soap:operation soapAction="https://protal.liquidmotors.com/SetAnalyticsUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAnalyticsDASInventory">
+      <soap:operation soapAction="https://protal.liquidmotors.com/SetAnalyticsDASInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAnalyticsCommit">
+      <soap:operation soapAction="https://protal.liquidmotors.com/SetAnalyticsCommit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAnalyticsDelete">
+      <soap:operation soapAction="https://protal.liquidmotors.com/SetAnalyticsDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsInfo">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GetAnalyticsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBBValues">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GetBBValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUpdateInventory">
+      <soap:operation soapAction="https://protal.liquidmotors.com/SetUpdateInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDASChromeYear">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GetDASChromeYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDASChromeStyles">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GetDASChromeStyles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getChromeMenuCache">
+      <soap:operation soapAction="https://protal.liquidmotors.com/getChromeMenuCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getChromeStyleIDByVIN">
+      <soap:operation soapAction="https://protal.liquidmotors.com/getChromeStyleIDByVIN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBlackbookMenuCache">
+      <soap:operation soapAction="https://protal.liquidmotors.com/getBlackbookMenuCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDASChromeModels">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GetDASChromeModels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DAS_Get_Motor_Years">
+      <soap:operation soapAction="https://protal.liquidmotors.com/DAS_Get_Motor_Years" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DAS_Get_Motor_Makes">
+      <soap:operation soapAction="https://protal.liquidmotors.com/DAS_Get_Motor_Makes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DAS_Get_Motor_Models">
+      <soap:operation soapAction="https://protal.liquidmotors.com/DAS_Get_Motor_Models" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DAS_Get_Motor_Styles">
+      <soap:operation soapAction="https://protal.liquidmotors.com/DAS_Get_Motor_Styles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DealerImport">
+      <soap:operation soapAction="https://protal.liquidmotors.com/DealerImport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importStatusGet">
+      <soap:operation soapAction="https://protal.liquidmotors.com/importStatusGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDetailsDone">
+      <soap:operation soapAction="https://protal.liquidmotors.com/setDetailsDone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEbay">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GetEbay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWebAd">
+      <soap:operation soapAction="https://protal.liquidmotors.com/getWebAd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEbayDetails">
+      <soap:operation soapAction="https://protal.liquidmotors.com/getEbayDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWebAdDetails">
+      <soap:operation soapAction="https://protal.liquidmotors.com/getWebAdDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBlackbookAdjustments">
+      <soap:operation soapAction="https://protal.liquidmotors.com/getBlackbookAdjustments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFilters">
+      <soap:operation soapAction="https://protal.liquidmotors.com/getFilters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWindowSticker">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GenerateWindowSticker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateBuyersGuide">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GenerateBuyersGuide" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchBuyersGuideWindowStickers">
+      <soap:operation soapAction="https://protal.liquidmotors.com/FetchBuyersGuideWindowStickers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVinExplosion">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GetVinExplosion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNewVIN">
+      <soap:operation soapAction="https://protal.liquidmotors.com/SetNewVIN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNewStyleID">
+      <soap:operation soapAction="https://protal.liquidmotors.com/SetNewStyleID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="dealerAnalytics">
+      <soap:operation soapAction="https://protal.liquidmotors.com/dealerAnalytics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="dealerPricing">
+      <soap:operation soapAction="https://protal.liquidmotors.com/dealerPricing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWebAdDetailsPhoto">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GetWebAdDetailsPhoto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resolveBlackbook">
+      <soap:operation soapAction="https://protal.liquidmotors.com/resolveBlackbook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resolveBluebook">
+      <soap:operation soapAction="https://protal.liquidmotors.com/resolveBluebook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBluebookOptions">
+      <soap:operation soapAction="https://protal.liquidmotors.com/getBluebookOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookOptionsSet">
+      <soap:operation soapAction="https://protal.liquidmotors.com/BookOptionsSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bluebookBaseGet">
+      <soap:operation soapAction="https://protal.liquidmotors.com/bluebookBaseGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="blackbookBaseGet">
+      <soap:operation soapAction="https://protal.liquidmotors.com/blackbookBaseGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BulkPrintWS_BG">
+      <soap:operation soapAction="https://protal.liquidmotors.com/BulkPrintWS_BG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVehicleReserved">
+      <soap:operation soapAction="https://protal.liquidmotors.com/SetVehicleReserved" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVehicleSold">
+      <soap:operation soapAction="https://protal.liquidmotors.com/SetVehicleSold" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastError">
+      <soap:operation soapAction="https://protal.liquidmotors.com/GetLastError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DASSoap12" type="tns:DASSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAnalytics">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GetAnalytics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsReRun">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GetAnalyticsReRun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsDetailed">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GetAnalyticsDetailed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsELink">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GetAnalyticsELink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsFeatures">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GetAnalyticsFeatures" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAnalyticsDefine">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/SetAnalyticsDefine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsOptions">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GetAnalyticsOptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAnalyticsUpdate">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/SetAnalyticsUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAnalyticsDASInventory">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/SetAnalyticsDASInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAnalyticsCommit">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/SetAnalyticsCommit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAnalyticsDelete">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/SetAnalyticsDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyticsInfo">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GetAnalyticsInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBBValues">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GetBBValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUpdateInventory">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/SetUpdateInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDASChromeYear">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GetDASChromeYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDASChromeStyles">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GetDASChromeStyles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getChromeMenuCache">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/getChromeMenuCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getChromeStyleIDByVIN">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/getChromeStyleIDByVIN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBlackbookMenuCache">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/getBlackbookMenuCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDASChromeModels">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GetDASChromeModels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DAS_Get_Motor_Years">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/DAS_Get_Motor_Years" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DAS_Get_Motor_Makes">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/DAS_Get_Motor_Makes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DAS_Get_Motor_Models">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/DAS_Get_Motor_Models" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DAS_Get_Motor_Styles">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/DAS_Get_Motor_Styles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DealerImport">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/DealerImport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="importStatusGet">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/importStatusGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDetailsDone">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/setDetailsDone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEbay">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GetEbay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWebAd">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/getWebAd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEbayDetails">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/getEbayDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWebAdDetails">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/getWebAdDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBlackbookAdjustments">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/getBlackbookAdjustments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFilters">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/getFilters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWindowSticker">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GenerateWindowSticker" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateBuyersGuide">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GenerateBuyersGuide" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchBuyersGuideWindowStickers">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/FetchBuyersGuideWindowStickers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVinExplosion">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GetVinExplosion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNewVIN">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/SetNewVIN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNewStyleID">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/SetNewStyleID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="dealerAnalytics">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/dealerAnalytics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="dealerPricing">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/dealerPricing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWebAdDetailsPhoto">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GetWebAdDetailsPhoto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resolveBlackbook">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/resolveBlackbook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resolveBluebook">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/resolveBluebook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBluebookOptions">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/getBluebookOptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookOptionsSet">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/BookOptionsSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bluebookBaseGet">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/bluebookBaseGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="blackbookBaseGet">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/blackbookBaseGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BulkPrintWS_BG">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/BulkPrintWS_BG" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVehicleReserved">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/SetVehicleReserved" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVehicleSold">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/SetVehicleSold" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastError">
+      <soap12:operation soapAction="https://protal.liquidmotors.com/GetLastError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DAS">
+    <wsdl:port name="DASSoap" binding="tns:DASSoap">
+      <soap:address location="http://testing.liquidmotors.com/WebServices/DAS/DAS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DASSoap12" binding="tns:DASSoap12">
+      <soap12:address location="http://testing.liquidmotors.com/WebServices/DAS/DAS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
