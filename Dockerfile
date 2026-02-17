@@ -31,7 +31,6 @@ COPY . .
 RUN msbuild LiquidMotorsWholesale.csproj `
     /p:Configuration=Release `
     /p:DeployOnBuild=true `
-    /p:PublishProfile=FolderProfile `
     /p:WebPublishMethod=FileSystem `
     /p:publishUrl=C:\publish `
     /p:DeleteExistingFiles=True
