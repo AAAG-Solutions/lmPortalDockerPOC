@@ -231,7 +231,6 @@
     <Content Include="Common\Aurigma\aurigma.htmluploader.control.js" />
     <Content Include="Common\Aurigma\aurigma.imageuploaderflash.min.js" />
     <Content Include="Common\Aurigma\aurigma.imageuploaderflash.swf" />
-    <Content Include="Common\Aurigma\ImageUploader5.cab" />
     <Content Include="Common\Aurigma\ImageUploader5.jar" />
     <Content Include="Common\Aurigma\iuembed.js" />
     <Content Include="Common\LightGallery\flexslider-icon.eot" />
