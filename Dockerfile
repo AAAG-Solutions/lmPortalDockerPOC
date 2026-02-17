@@ -13,9 +13,9 @@ RUN setx /M PATH $($Env:PATH + ';C:\Program Files (x86)\Microsoft Visual Studio\
 WORKDIR /app
 
 # Copy project files
-COPY *.csproj ./
-COPY *.sln ./
-COPY packages.config
+COPY *.csproj .
+COPY *.sln .
+COPY packages.config .
 
 RUN Invoke-WebRequest `
         -Uri 'https://dist.nuget.org/win-x86-commandline/v6.8.0/nuget.exe' `
@@ -25,7 +25,7 @@ RUN C:\nuget.exe restore packages.config `
         -PackagesDirectory packages `
         -Verbosity detailed
 
-COPY . ./
+COPY . .
 
 # Build and publish
 RUN msbuild LiquidMotorsWholesale.csproj `
