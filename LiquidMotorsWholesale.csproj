@@ -718,7 +718,7 @@
     <Content Include="WholesaleContent\VehicleManagement.aspx" />
     <None Include="Connected Services\Authenticate\configuration91.svcinfo" />
     <None Include="Connected Services\Authenticate\configuration.svcinfo" />
-    <Content Include="Connected Services\Authenticate\LiquidMotorsWholesale.Authenticate.lmReturnValue.datasource">
+    <Content Include="Connected Services\Authenticate\LMWholesale.Authenticate.lmReturnValue.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\Authenticate\Reference.svcmap">
@@ -727,10 +727,10 @@
     </None>
     <None Include="Connected Services\Dealer\configuration91.svcinfo" />
     <None Include="Connected Services\Dealer\configuration.svcinfo" />
-    <Content Include="Connected Services\Dealer\LiquidMotorsWholesale.Dealer.lmReturnValue.datasource">
+    <Content Include="Connected Services\Dealer\LMWholesale.Dealer.lmReturnValue.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\Dealer\LiquidMotorsWholesale.Dealer.GetDealerInfoResponse.datasource">
+    <Content Include="Connected Services\Dealer\LMWholesale.Dealer.GetDealerInfoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\Dealer\Reference.svcmap">

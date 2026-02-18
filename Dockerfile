@@ -32,7 +32,6 @@ RUN msbuild LiquidMotorsWholesale.csproj `
     /p:Configuration=Release `
     /p:DeployOnBuild=true `
     /p:WebPublishMethod=FileSystem `
-    /p:ExcludeFoldersFromDeployment="Connected Services" `
     /p:publishUrl=C:\publish `
     /p:DeleteExistingFiles=True
 
