@@ -30,10 +30,10 @@ COPY . .
 # Build and publish
 RUN msbuild LiquidMotorsWholesale.csproj `
     /p:Configuration=Release `
-    /p:DeployOnBuild=true `
-    /p:WebPublishMethod=FileSystem `
-    /p:publishUrl=C:\publish `
-    /p:DeleteExistingFiles=True
+    /p:Platform="Any CPU" `
+    /t:Publish `
+    /p:PublishProfile=FileSystem `
+    /p:PublishUrl=C:\publish
 
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2022
