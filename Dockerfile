@@ -42,7 +42,7 @@ FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2022
 WORKDIR /inetpub/wwwroot
 
 # Copy published files from build stage
-COPY --from=build C:/publish ./
+COPY --from=build /publish ./
 
 # Expose port
 EXPOSE 80
