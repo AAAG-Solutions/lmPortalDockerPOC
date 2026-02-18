@@ -30,10 +30,11 @@ COPY . .
 # Build and publish
 RUN msbuild LiquidMotorsWholesale.csproj `
     /p:Configuration=Release `
-    /p:Platform="Any CPU" `
-    /t:Publish `
-    /p:PublishProfile=FileSystem `
-    /p:PublishUrl=C:\publish
+    /p:DeployOnBuild=true `
+    /p:WebPublishMethod=FileSystem `
+    /p:publishUrl=C:\publish `
+    /p:DeleteExistingFiles=True `
+    /verbosity:minimal
 
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2022
@@ -41,8 +42,7 @@ FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2022
 WORKDIR /inetpub/wwwroot
 
 # Copy published files from build stage
-COPY --from=build C:\publish ./
+COPY --from=build C:/publish ./
 
 # Expose port
 EXPOSE 80
-
